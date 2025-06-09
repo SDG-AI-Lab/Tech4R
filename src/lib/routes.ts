@@ -9,7 +9,7 @@ export const routes = {
   events: '/events',
   contact: '/contact',
   partnerWithUs: '/partner-with-us',
-  pillars: '/pillars',
+  pillars: '/pillars-of-action',
 } as const;
 
 /**
