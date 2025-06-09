@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 const outfitSans = Outfit({
   variable: "--font-outfit-sans",
@@ -24,9 +25,10 @@ export default function RootLayout({
         className={`${outfitSans.variable} antialiased flex flex-col min-h-screen`}
       >
         <Navigation />
-        <main className="flex-1 flex flex-col">
+        <main className="flex-1 flex flex-col max-w-7xl">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );

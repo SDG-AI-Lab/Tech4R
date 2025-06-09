@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { config } from './config';
+import { navigationRoutes } from '@/lib/routes';
 
 export const NavigationMobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,12 +46,12 @@ export const NavigationMobileMenu = () => {
         isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
       }`}>
         <div>
-          {config.items.map((item, index) => (
+          {navigationRoutes.main.map((item, index) => (
             <Link 
               key={item.href}
               href={item.href} 
               className={`px-6 block text-white px-4 py-6 text-lg font-normal active:bg-white/10 transition-colors ${
-                index < config.items.length - 1 ? 'border-b border-white/10' : ''
+                index < navigationRoutes.main.length - 1 ? 'border-b border-white/10' : ''
               }`}
               onClick={closeMenu}
             >

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Logo from '@/components/Logo';
 import Button from '@/components/Button';
 import { NavigationMobileMenu } from './NavigationMobileMenu';
-import { config } from './config';
+import { routes, navigationRoutes } from '@/lib/routes';
 
 export const Navigation = () => {
   return (
@@ -11,7 +11,7 @@ export const Navigation = () => {
         <div className="flex justify-between items-center h-28">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
+            <Link href={routes.home} className="flex items-center">
               <Logo />
             </Link>
           </div>
@@ -19,7 +19,7 @@ export const Navigation = () => {
           {/* Desktop Navigation Items */}
           <div className="hidden lg:block">
             <div className="flex items-center space-x-4 xl:space-x-8">
-              {config.items.map((item) => (
+              {navigationRoutes.main.map((item) => (
                 <Link 
                   key={item.href}
                   href={item.href} 
@@ -35,12 +35,12 @@ export const Navigation = () => {
           <div className="flex items-center space-x-4">
             {/* Action Buttons - Always Visible */}
             <Link 
-              href="/contact" 
+              href={routes.contact} 
               className="text-white px-3 py-2 text-base font-normal"
             >
               Contact<span className="hidden md:inline"> Us</span>
             </Link>
-            <Button href="/volunteer">            
+            <Button href={routes.volunteers}>            
               <span className="hidden md:inline">Become a&nbsp;</span>Volunteer
             </Button>
 
