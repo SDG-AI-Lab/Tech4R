@@ -17,23 +17,36 @@ export const NavigationMobileMenu = () => {
 
   return (
     <div className="lg:hidden relative">
-      {/* Mobile menu button */}
       <button 
         onClick={toggleMenu}
-        className="text-white hover:opacity-70 p-2 transition-opacity"
+        className="text-white p-2"
         aria-label="Toggle mobile menu"
       >
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            strokeWidth={2} 
-            d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+        <div className="h-5 w-5 relative flex flex-col justify-center items-center">
+          <span 
+            className={`block h-0.5 w-4 bg-white transition-all duration-300 ease-in-out absolute ${
+              isOpen 
+                ? 'rotate-45' 
+                : '-translate-y-1'
+            }`}
           />
-        </svg>
+          <span 
+            className={`block h-0.5 w-4 bg-white transition-all duration-300 ease-in-out absolute ${
+              isOpen 
+                ? 'opacity-0 scale-0' 
+                : 'opacity-100 scale-100'
+            }`}
+          />
+          <span 
+            className={`block h-0.5 w-4 bg-white transition-all duration-300 ease-in-out absolute ${
+              isOpen 
+                ? '-rotate-45' 
+                : 'translate-y-1'
+            }`}
+          />
+        </div>
       </button>
 
-      {/* Blur Backdrop */}
       {isOpen && (
         <div 
           className="fixed inset-0 top-28 backdrop-blur-sm z-40"
@@ -41,7 +54,6 @@ export const NavigationMobileMenu = () => {
         />
       )}
 
-      {/* Mobile Navigation Menu */}
       <div className={`fixed top-28 left-0 right-0 bg-color-02 z-50 transition-all duration-150 ease-in-out overflow-hidden ${
         isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
       }`}>
