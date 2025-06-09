@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import Logo from './Logo';
+import Button from './Button';
 
 export default function Navigation() {
   return (
-    <nav className="bg-white shadow-sm border-b">
+    <nav className="bg-color-02">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-28">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
@@ -15,39 +16,36 @@ export default function Navigation() {
 
           {/* Centered Navigation Items */}
           <div className="hidden md:block">
-            <div className="flex items-center space-x-8">
-              <Link href="/about" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+            <div className="flex items-center space-x-6">
+              <Link href="/about" className="text-white px-3 py-2">
                 About
               </Link>
-              <Link href="/projects" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+              <Link href="/projects" className="text-white px-3 py-2">
                 Projects
               </Link>
-              <Link href="/volunteers" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+              <Link href="/volunteers" className="text-white px-3 py-2">
                 Volunteers
               </Link>
-              <Link href="/events" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+              <Link href="/events" className="text-white px-3 py-2">
                 Events
               </Link>
-              <Link href="/partner" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+              <Link href="/partner-with-us" className="text-white px-3 py-2">
                 Partner with Us
               </Link>
             </div>
           </div>
 
           {/* Right Side Buttons */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-6">
             <Link 
               href="/contact" 
-              className="text-gray-700 hover:text-blue-600 px-4 py-2 text-sm font-medium border border-transparent hover:border-gray-300 rounded-md transition-all"
+              className="text-white px-3 py-2 text-base font-normal"
             >
               Contact us
             </Link>
-            <Link 
-              href="/volunteer" 
-              className="bg-blue-600 text-white px-4 py-2 text-sm font-medium rounded-md hover:bg-blue-700 transition-colors"
-            >
-              Become a volunteer
-            </Link>
+            <Button href="/volunteer">            
+              Become a Volunteer
+            </Button>
           </div>
 
           {/* Mobile menu button */}
