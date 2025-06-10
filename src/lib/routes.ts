@@ -45,7 +45,7 @@ export const navigationRoutes = {
     { label: 'Projects', href: routes.projects },
     { label: 'Volunteers', href: routes.volunteers },
     { label: 'Events', href: routes.events },
-    { label: 'Partner with Us', href: routes.partnerWithUs },
+    { label: 'Partner With Us', href: routes.partnerWithUs },
   ],
   footer: {
     navigation: [
@@ -53,11 +53,11 @@ export const navigationRoutes = {
       { label: 'Contact us', href: routes.contact },
     ],
     ourWork: [
-      { label: 'Pillars of action', href: routes.pillars },
-      { label: 'Projects & solutions', href: routes.projects },
+      { label: 'Pillars of Action', href: routes.pillars },
+      { label: 'Projects & Solutions', href: routes.projects },
       { label: 'Volunteers', href: routes.volunteers },
       { label: 'Events', href: routes.events },
-      { label: 'Partner with us', href: routes.partnerWithUs },
+      { label: 'Partner With Us', href: routes.partnerWithUs },
     ],
   },
   actions: {

@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabaseClient'
+import { Hero } from '@/components/Hero'
 
 export default async function ProjectsPage() {
     const { data: projects, error } = await supabase
@@ -11,6 +12,8 @@ export default async function ProjectsPage() {
     }
 
     return (
+      <>
+        <Hero title="Projects & Solutions" subtitle="Discover how our tools and technologies have helped solve real-world challenges in disaster scenarios." />
         <div>
             <h1 className="text-2xl font-bold mb-4">Projects</h1>
             <ul>
@@ -19,5 +22,6 @@ export default async function ProjectsPage() {
                 ))}
             </ul>
         </div>
+      </>
     )
 }

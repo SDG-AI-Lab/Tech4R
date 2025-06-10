@@ -25,7 +25,7 @@ export default function RootLayout({
         className={`${outfitSans.variable} antialiased flex flex-col min-h-screen`}
       >
         <Navigation />
-        <main className="flex-1 flex flex-col max-w-7xl mx-auto">
+        <main className="flex-1 flex flex-col">
           {children}
         </main>
         <Footer />
