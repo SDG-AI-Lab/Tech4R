@@ -1,12 +1,23 @@
-import Link from 'next/link';
-import { Logo } from '@/components/Logo';
-import { Button } from '@/components/Button';
-import { NavigationMobileMenu } from './NavigationMobileMenu';
-import { routes, navigationRoutes } from '@/lib/routes';
+"use client";
+
+import Link from "next/link";
+import { Logo } from "@/components/Logo";
+import { Button } from "@/components/Button";
+import { NavigationMobileMenu } from "./NavigationMobileMenu";
+import { routes, navigationRoutes } from "@/lib/routes";
+import { usePathname } from "next/navigation";
 
 export const Navigation = () => {
+  const pathname = usePathname();
+  if (pathname === routes.home) {
+    console.log(pathname);
+  }
   return (
-    <nav className="bg-color-02 relative">
+    <nav
+      className={`${
+        pathname === routes.home ? "bg-transparent" : "bg-color-02"
+      }  relative z-40`}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-28">
           {/* Logo */}
@@ -20,9 +31,9 @@ export const Navigation = () => {
           <div className="hidden lg:block">
             <div className="flex items-center space-x-4 xl:space-x-8">
               {navigationRoutes.main.map((item) => (
-                <Link 
+                <Link
                   key={item.href}
-                  href={item.href} 
+                  href={item.href}
                   className="text-white px-3 py-2 text-base font-normal"
                 >
                   {item.label}
@@ -34,13 +45,13 @@ export const Navigation = () => {
           {/* Right Side - Action Buttons + Mobile Menu */}
           <div className="flex items-center space-x-4">
             {/* Action Buttons - Always Visible */}
-            <Link 
-              href={routes.contact} 
+            <Link
+              href={routes.contact}
               className="text-white px-3 py-2 text-base font-normal"
             >
               Contact<span className="hidden md:inline"> Us</span>
             </Link>
-            <Button href={routes.volunteers}>            
+            <Button href={routes.volunteers}>
               <span className="hidden md:inline">Become a&nbsp;</span>Volunteer
             </Button>
 
@@ -51,4 +62,4 @@ export const Navigation = () => {
       </div>
     </nav>
   );
-} 
+};
