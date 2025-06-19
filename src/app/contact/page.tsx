@@ -10,7 +10,7 @@ export default function ContactPage() {
     return {
       name: item.name,
       desc: item.desc || '',
-      icon: <Icon className="w-6 h-6" />,
+      icon: <Icon className="w-14 h-14" />,
       url: item.url
     };
   });

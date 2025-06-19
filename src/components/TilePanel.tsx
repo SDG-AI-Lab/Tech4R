@@ -5,6 +5,7 @@ type TileItem = {
   desc?: string;
   icon: React.ReactNode;
   url?: string;
+  classNames?: string;
 };
 
 type TilePanelProps = {
@@ -18,11 +19,11 @@ export default function TilePanel({ title, tiles }: TilePanelProps) {
         <div className="max-w-6xl mx-auto px-4">
             {title && <h2 className="text-3xl font-bold mb-8 text-center">{title}</h2>}
 
-            <div className="lg:grid lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {tiles.map((tile, idx) => {
 
                     const content = (
-                        <div className="bg-white rounded-lg shadow p-4 sm:mb-4 flex flex-col lg:h-70 hover:shadow-md transition">
+                        <div className={`bg-white rounded-lg shadow p-4 sm:mb-4 hover:shadow-md transition ${tile.classNames || ''}`}>
                             <div className="text-color-01 text-2xl mb-2">{tile.icon}</div>
                             <div className="text-sm font-semibold">{tile.name}</div>
                             {tile.desc && <p className="text-xs text-neutral-02 mt-1">{tile.desc}</p>}

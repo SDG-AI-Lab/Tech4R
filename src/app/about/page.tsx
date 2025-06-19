@@ -12,7 +12,8 @@ export default function AboutPage() {
       name: item.name,
       desc: item.desc || '',
       icon: <Image src={item.icon} alt={item.name} width={110} height={110}/>,
-      url: item.url
+      url: item.url,
+      classNames: "lg:h-70"
     };
   });
 
