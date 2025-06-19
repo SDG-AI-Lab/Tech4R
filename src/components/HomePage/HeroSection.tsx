@@ -4,18 +4,17 @@ import { routes } from "@/lib/routes";
 
 const HeroSection = () => {
   return (
-    <div className="relative min-h-screen scroll-mt-28 -mt-28 max-w-[1392px] mx-auto">
+    <div className="relative min-h-screen scroll-mt-28 -mt-28 w-full mx-auto">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/laptop.jpg"
+          src="/images/laptop.png"
           alt="Laptop keyboard background"
-          width={1392}
-          height={900}
+          fill
           className="w-full h-full object-cover rounded-[20px]"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black to-black/10 z-5 rounded-[20px]" />
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-black to-black/10 z-5 rounded-[20px]" /> */}
       </div>
 
       {/* Main Content */}
@@ -44,7 +43,7 @@ const HeroSection = () => {
               </Button>
             </div>
           </div>
-          <div className="flex flex-row items-center justify-center sm:justify-start gap-4">
+          <div className="flex flex-row items-center justify-center sm:justify-start gap-4 mb-20">
             <div className="h-[60px] w-[60px] flex items-center justify-center relative">
               <Image
                 src="/images/partnerships.png"

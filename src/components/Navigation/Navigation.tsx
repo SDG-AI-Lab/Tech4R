@@ -14,9 +14,7 @@ export const Navigation = () => {
   }
   return (
     <nav
-      className={`${
-        pathname === routes.home ? "bg-transparent" : "bg-color-02"
-      }  relative z-40`}
+      className={`${pathname === routes.home ? "bg-transparent sm:mt-6" : "bg-color-02"} relative z-40`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-28">
