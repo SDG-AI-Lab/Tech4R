@@ -15,10 +15,10 @@ export default function PillarsOfActionPage() {
             
             return (
               <div key={item.title} className="bg-color-03 m-2 p-4 pt-32 rounded-xl">
-                <div className="bg-white p-4 rounded hover:bg-color-01 hover:text-white transition">
+                <div className="group bg-white p-4 rounded hover:bg-color-01 transition flex flex-col gap-2">
                   <Icon className="bg-color-03 rounded w-16 h-16 text-color-01 mt-1 p-4" />
-                  <h2 className="text-2xl font-bold">{item.title}</h2>
-                  <p>{item.desc}</p>
+                  <h2 className="text-[32px] font-medium group-hover:text-white transition">{item.title}</h2>
+                  <p className="text-lg text-neutral-03 group-hover:text-white transition">{item.desc}</p>
                 </div>
               </div>
             );
