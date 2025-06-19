@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
+import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
 
 const outfitSans = Outfit({
@@ -28,6 +29,7 @@ export default function RootLayout({
         <main className="flex-1 flex flex-col">
           {children}
         </main>
+        <CallToAction />
         <Footer />
       </body>
     </html>
