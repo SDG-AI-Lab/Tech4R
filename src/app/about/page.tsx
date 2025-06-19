@@ -61,6 +61,10 @@ export default function AboutPage() {
         {/* TODO: Track Record & Milestones */}
 
         <div className="container">
+          <div className="lg:grid lg:grid-cols-2"></div>
+        </div>
+
+        <div className="container">
           <div className="lg:grid lg:grid-cols-2">
             <div className="m-2 p-4">
               <h2 className="text-4xl md:text-7xl/20 font-semibold mx-auto p-4">Why Tech4R Exists</h2>
