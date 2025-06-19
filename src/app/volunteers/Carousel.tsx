@@ -1,12 +1,13 @@
 'use client';
 import styles from "@/app/volunteers/carousel.module.css"
-import {Children, useState} from 'react';
+import {useState, createContext, useContext} from 'react';
 
-function Carousel({children, pages, size, className}:{children: Array<React.ReactNode>/*React.ReactNode*/, pages:number, size:number, className:string}) {
+const PageContext = createContext({page: 1,size:1});
+
+function Carousel({children, pages, size, className}:{children: Array<React.ReactNode>, pages:number, size:number, className:string}) {
   const [page, setPage] = useState(0);
   function setter (p: number) {
     setPage(p);
-    console.log(page,(size*page),(size*(page+1)));
   }
   let dots;
   if (pages>1){
@@ -16,10 +17,20 @@ function Carousel({children, pages, size, className}:{children: Array<React.Reac
   }
   return (
   <ul className={`w-full ${styles.carousel} ${className}`}>
-    {children.filter((_,i) => {return (i>=(size*page))&&(i<(size*(page+1)))})}
+    <PageContext value={{page:page,size:size}}>{children}</PageContext>
     {dots}
   </ul>
 );
 }
 
-export default Carousel
+function CI ({children, className, index}:{children: Array<React.ReactNode>, className:string, index:number}) {
+  const context = useContext(PageContext);
+  const visible = (index>=(context.size*context.page))&&(index<(context.size*(context.page+1)));
+  return (
+    <li className={`${className} ${visible?'':'hidden'}`}>
+      {children}
+    </li>
+  );
+}
+
+export {Carousel, CI}
