@@ -1,27 +1,36 @@
-import { supabase } from '@/lib/supabaseClient'
-import { Hero } from '@/components/Hero'
+import { supabase } from '@/lib/supabaseClient';
+import { Hero } from '@/components/Hero';
+import { ProjectGrid } from './components/project-grid';
+
+const DUMMY_IMAGE = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80';
 
 export default async function ProjectsPage() {
-    const { data: projects, error } = await supabase
-        .from('projects')
-        .select('*')
+  
+  const { data: categories, error: catError } = await supabase
+    .from('categories')
+    .select('id, name, created_at, description');
 
-    if (error) {
-        console.error(error)
-        return <p>Failed to load projects.</p>
-    }
+  const { data: projects, error: projError } = await supabase
+    .from('projects')
+    .select('*');
 
+  if (catError || projError) {
     return (
-      <>
-        <Hero title="Projects & Solutions" subtitle="Discover how our tools and technologies have helped solve real-world challenges in disaster scenarios." />
-        <div>
-            <h1 className="text-2xl font-bold mb-4">Projects</h1>
-            <ul>
-                {projects.map(project => (
-                    <li key={project.id}>{project.name}</li>
-                ))}
-            </ul>
-        </div>
-      </>
-    )
+      <div className="p-8 text-red-600">
+        Failed to load projects or categories.<br />
+        {catError?.message || projError?.message || 'Unknown error'}
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <Hero title="Projects & Solutions" subtitle="Discover how our tools and technologies have helped solve real-world challenges in disaster scenarios." />
+      <ProjectGrid 
+        initialCategories={categories || []} 
+        initialProjects={projects || []} 
+        dummyImage={DUMMY_IMAGE}
+      />
+    </>
+  );
 }

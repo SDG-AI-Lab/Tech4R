@@ -37,6 +37,15 @@ export function isValidRoute(path: string): path is RoutePath {
 }
 
 /**
+ * Creates a path for a single project.
+ * @param slug The project slug.
+ * @returns The path to the project detail page.
+ */
+export function getProjectDetailRoute(slug: string): string {
+  return `${routes.projects}/${slug}`;
+}
+
+/**
  * Navigation configuration using type-safe routes
  */
 export const navigationRoutes = {
