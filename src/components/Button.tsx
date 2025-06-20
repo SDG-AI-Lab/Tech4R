@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, ReactNode } from 'react';
 import Link from 'next/link';
 
 interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'href'> {
-  variant?: 'primary' | 'ghost';
+  variant?: 'primary' | 'white' | 'ghost';
   children: ReactNode;
   className?: string;
   href?: string;
@@ -19,6 +19,7 @@ export const Button = ({
   
   const variantClasses = {
     primary: 'bg-color-01 text-white hover:opacity-90 shadow-sm',
+    white: 'bg-white text-black hover:opacity-90 shadow-sm',
     ghost: 'bg-transparent text-color-01 border border-color-01 hover:opacity-70'
   };
 
