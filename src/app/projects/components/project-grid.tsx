@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/Button';
 import Link from 'next/link';
+import { getProjectDetailRoute } from '@/lib/routes';
 
 interface Category {
   id: string;
@@ -94,7 +95,7 @@ export function ProjectGrid({ initialCategories, initialProjects, dummyImage }: 
               </div>
               <div className="flex items-end justify-between w-full mt-auto">
                 {/* Learn More*/}
-                <Link href={`/projects/${project.slug}`} className="text-neutral-04 text-sm font-medium inline-flex items-center gap-1 hover:underline">
+                <Link href={getProjectDetailRoute(project.slug)} className="text-neutral-04 text-sm font-medium inline-flex items-center gap-1 hover:underline">
                   Learn More <span aria-hidden>→</span>
                 </Link>
                 {/* Category tag*/}
