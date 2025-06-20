@@ -5,12 +5,13 @@ import Image from "next/image";
 import styles from "@/app/volunteers/volunteer.module.css"
 import debugimg from "@/app/volunteers/debugimg.png"
 import {Carousel, CI} from "@/app/volunteers/Carousel"
+import { FaLinkedin, FaScrewdriverWrench, FaListOl, FaQuoteLeft } from "react-icons/fa6";
 
 //filling arrays with dummy data to test appearance
 //todo: pull from actual database.
-const volunteers = Array(10).fill({name:"Name",loc:"Location",src:debugimg,link:""});
-const skills = Array(6).fill({name:"Skill Name",desc:"Lorem Ipsum etc. 2 lines each",ico:""});
-const steps = Array(3).fill({name:"Step X",desc:"Lorem Ipsum etc. 2 lines each",ico:""});
+const volunteers = Array(10).fill({name:"Name",loc:"Location",src:debugimg,link:"?"});
+const skills = Array(6).fill({name:"Skill Name",desc:"Lorem Ipsum etc. 2 lines each",ico:FaScrewdriverWrench});
+const steps = Array(3).fill({name:"Step X",desc:"Lorem Ipsum etc. 2 lines each",ico:FaListOl});
 const testimony = Array(8).fill({title:"Testimony",test:"Lorem Ipsum etc etc etc.",vname:"Person Person",vtitle:"Title",vsrc:debugimg});
 const assignments = Array(8).fill({title:"Assignment",desc:"Lorem Ipsum etc etc etc.",meta:"METADATA",href:""});
 
@@ -28,7 +29,7 @@ export default function VolunteersPage() {
                 <div className={`${styles.overlay} fixed bottom-0 w-full h-6/12 z-3 opacity-0 group-hover:opacity-100 text-white duration-200 bg-gradient-to-t from-black bg-opacity-75`}>
                   <div className='fixed bottom-0 w-full p-4 z-4'>
                     <h5 className='text-2xl font-bold'>{e.name}{i}</h5><p className='text-neutral-01 font-light text-xs leading-relaxed'>{e.loc}</p>
-                    {/*todo: LinkedIn icon*/}
+                    {(e.link == "")?(<></>):(<a href={e.link}><FaLinkedin className="fixed bottom-3 right-3 text-4xl"/></a>)}
                   </div>
                 </div>
               </CI>
@@ -37,13 +38,13 @@ export default function VolunteersPage() {
         </div>
 
         <div className="container mx-auto p-4 m-6 bg-neutral-01 rounded-3xl">
-          <Title> Required Skills </Title>
+          <Title>Required Skills</Title>
           <ul className="grid gap-4 grid-cols-2 md:grid-cols-3 place-items-center place-content-center">
-            {skills.map(i => (
-              <li key={i.name} className="rounded-lg p-4 w-full m-3 contain-content bg-background">
-                {/*todo: Icons*/}
-                <h5 className='text-2xl font-bold'>{i.name}</h5>
-                <p className='text-neutral-02 font-light leading-relaxed'>{i.desc}</p>
+            {skills.map(e => (
+              <li key={e.name} className="rounded-lg p-4 w-full m-3 contain-content bg-background">
+                {(typeof e.ico == 'string')?(<></>):(<e.ico className = "text-4xl text-color-01"/>)}
+                <h5 className='text-2xl font-bold'>{e.name}</h5>
+                <p className='text-neutral-02 font-light leading-relaxed'>{e.desc}</p>
               </li>
             ))}
           </ul>
@@ -54,7 +55,7 @@ export default function VolunteersPage() {
           <ul className={`grid gap-4 grid-cols-2 md:grid-cols-${steps.length} place-items-center place-content-center`}>
             {steps.map((e,i) => (
               <li key={`step${i}`} className="rounded-lg p-4 w-full m-3 contain-content text-center bg-background border-1 border-neutral-500 border-opacity-20">
-                {/*todo: Icons*/}
+                {(typeof e.ico == 'string')?(<></>):(<e.ico className = "text-4xl m-auto text-color-01"/>)}
                 <h5 className='text-2xl font-bold'>{e.name}</h5>
                 <p className='text-neutral-03'>{e.desc}</p>
               </li>
@@ -67,14 +68,14 @@ export default function VolunteersPage() {
           <Carousel pages={1+Math.floor((testimony.length-1)/6)} size={6} className="grid gap-4 grid-cols-2 md:grid-cols-3 place-items-center place-content-center">
             {testimony.map((e,i) => (
               <CI key={e.title} className="rounded-lg w-full p-4 m-3 contain-content bg-neutral-01" index={i}>
-                {/*todo: Quote icon*/}
+                <FaQuoteLeft className="text-color-01 text-5xl"/>
                 <h5 className='text-2xl font-bold'>{e.title}{i}</h5>
                 <p className='text-neutral-03'>{e.test}</p>
                 <div className="flex mt-4">
-                  <Image alt={e.vname} src={e.vsrc} height={48} className='mr-4 rounded-full'/>
+                  <Image alt={e.vname} src={e.vsrc} className='mr-4 h-12 w-12 rounded-full'/>
                   <div>
-                    <h6 className='text-lg font-bold'>{e.vname}</h6>
-                    <p className='text-neutral-03'>{e.vtitle}</p>
+                    <h6 className='text-lg font-semibold leading-relaxed text-neutral-04'>{e.vname}</h6>
+                    <p className='text-neutral-02 text-xs'>{e.vtitle}</p>
                   </div>
                 </div>
               </CI>

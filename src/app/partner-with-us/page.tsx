@@ -3,6 +3,7 @@ import { Button } from '@/components/Button'
 import Title from '@/components/Title'
 import Image from "next/image";
 import debugimg from "@/app/volunteers/debugimg.png"
+import { FaCircleCheck } from "react-icons/fa6";
 
 //Dummy data; todo: pull from actual database or hardcode it in
 const partners = Array(6).fill({name:"Partner X",desc:"Lorem Ipsum",logo:debugimg});
@@ -25,7 +26,7 @@ export default function PartnerWithUsPage() {
             <Title>Why Partner with Tech4R?</Title>
             <p className="text-neutral-03 p-4 mb-4">Lorem ipsum etc etc etc etc<br />Description goes here</p>
             <ul className="grid gap-4 grid-cols-2 place-items-center place-content-center text-neutral-03 p-4 mb-4">
-              {reasons.map(e => (<li key={e} className="w-full">{e}</li>))}
+              {reasons.map(e => (<li key={e} className="inline w-full"><FaCircleCheck className="text-color-01 inline align-sub mr-4"/>{e}</li>))}
             </ul>
             <Button className="m-auto flex-none" href="/contact">Email us<span className="hidden md:inline">&nbsp;for Partnership Inquiries</span></Button>
           </div>
