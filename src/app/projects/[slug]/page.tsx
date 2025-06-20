@@ -1,6 +1,7 @@
 import { supabase } from '@/lib/supabaseClient';
 import Link from 'next/link';
 import Image from 'next/image';
+import { routes } from '@/lib/routes';
 
 const DUMMY_IMAGE = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80';
 
@@ -28,7 +29,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       {/* hero section */}
       <div className="bg-color-02 py-16 text-center">
         <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">{project.name}</h1>
-        <Link href="/projects">
+        <Link href={routes.projects}>
           <span className="inline-block border border-white text-white rounded-full px-6 py-2 text-base font-medium hover:bg-white hover:text-color-02 transition">Back to all Projects</span>
         </Link>
       </div>
