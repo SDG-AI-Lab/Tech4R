@@ -26,8 +26,6 @@ cd tech4r
 
 ```bash
 npm install
-# or
-yarn install
 ```
 
 ### 3. **Create your `.env.local` file**
