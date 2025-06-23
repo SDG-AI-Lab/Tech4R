@@ -4,7 +4,7 @@ import { routes } from "@/lib/routes";
 
 const HeroSection = () => {
   return (
-    <div className="relative min-h-screen scroll-mt-28 -mt-28 max-w-[1392px] mx-auto">
+    <div className="relative min-h-screen scroll-mt-28 -mt-28 container mx-auto px-4 sm:px-6 lg:px-8">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
