@@ -4,6 +4,7 @@ import Image from 'next/image';
 import TilePanel from '@/components/TilePanel';
 import { partners } from './partners';
 import { FaQuoteLeft } from "react-icons/fa6";
+import { AboutTimeline } from "./AboutTimeline";
 
 export default function AboutPage() {
 
@@ -17,7 +18,6 @@ export default function AboutPage() {
     };
   });
 
-  console.log(partnerTiles);
 
   return (
     <>
@@ -35,7 +35,7 @@ export default function AboutPage() {
         />
       </Hero>
 
-      <div className="flex flex-col items-center justify-center">        
+      <div className="flex flex-col items-center justify-center gap-30">        
         <div className="container">
           <div className="lg:grid lg:grid-cols-2">
             <div>
@@ -61,10 +61,9 @@ export default function AboutPage() {
 
         {/* TODO: Track Record & Milestones */}
 
-        <div className="container">
-          <div className="lg:grid lg:grid-cols-2"></div>
+        <div className="container sm:rounded-3xl overflow-hidden">
+          <AboutTimeline />
         </div>
-
         <div className="container">
           <div className="lg:grid lg:grid-cols-2">
             <div className="m-2 p-4">
