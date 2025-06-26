@@ -12,9 +12,10 @@ export default function CallToAction() {
     }
 
     return (
-        <div className="flex items-center justify-center">
-            <div className="relative bg-[url('/images/phone.jpg')] bg-cover bg-right h-[480px] w-[95%] lg:p-24 rounded-lg">
-                <div className="absolute inset-0 grid grid-cols-1 items-center bg-color-01 opacity-90 rounded-lg p-6 lg:grid-cols-2 lg:px-24 gap-8">
+        <div className="flex items-center justify-center w-full">
+            <div className="relative h-[480px] w-[95%] xl:max-w-[2104px] bg-[url('/images/phone.jpg')] bg-cover bg-right rounded-lg p-6 lg:px-24 gap-8">
+
+                <div className="absolute inset-0 grid grid-cols-1 lg:grid-cols-2 items-center bg-color-01 opacity-90 rounded-lg p-6 lg:px-24 gap-8">
                     <div>
                         <h2 className="text-4xl font-semibold text-white">
                             Have questions, ideas, or proposals?
@@ -29,6 +30,5 @@ export default function CallToAction() {
                 </div>
             </div>
         </div>
-
     );
 }

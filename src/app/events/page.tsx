@@ -49,8 +49,8 @@ export default async function EventsPage() {
     .order('date', { ascending: false }) as { data: Event[] | null, error: Error | null };
 
   if (error) {
-    console.error(error)
-    return <p>Failed to load events.</p>
+    console.error(error);
+    // return <p>Failed to load events.</p>
   }
 
   return (
@@ -99,6 +99,9 @@ export default async function EventsPage() {
             { icon: <FaCircleCheck />, text: "Lorem ipsum" },
             { icon: <FaCircleCheck />, text: "Lorem ipsum" },
           ]}
+          img1Src="/images/work-desk.jpg"
+          img2Src="/images/logo-undp.png"
+          img3Src="/images/phone.jpg"
           // TODO: Set text, content img1Src, img2Src, img3Src
           />
       </section>

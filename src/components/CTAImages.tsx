@@ -19,12 +19,12 @@ type CTAImagesProps = {
 
 export default function CTAImages({ title, text, content, btnHref, btnLabel, img1Src, img2Src, img3Src }: CTAImagesProps) {
     return (
-        <div className="flex items-center justify-center">
-            <div className="h-[319px] md:h-[500px] lg:h-[657px] w-[95%] rounded-lg bg-color-02 text-white grid p-6 lg:grid-cols-2 lg:px-24 gap-8">
-                <div className="flex flex-col justify-center">
+        <div className="flex items-center justify-center my-8">
+            <div className="w-[95%] rounded-lg bg-color-02 text-white grid p-6 lg:px-24 lg:grid-cols-2 lg:px-24 gap-8">
+                <div className="flex flex-col justify-center py-12 sm:pb-2">
                     <h2 className="text-4xl font-semibold">{title}</h2>
                     <p className="py-8 mb-2 text-lg text-neutral-01">{text}</p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 mb-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-8">
                         {content?.map((item, index) => (
                         <div key={index} className="flex items-start gap-2 mb-2">
                             {item.icon && <span className="text-xl text-color-01">{item.icon}</span>}
@@ -40,7 +40,7 @@ export default function CTAImages({ title, text, content, btnHref, btnLabel, img
                 </div>
 
                 <div className="overflow-hidden">
-                    <div className="relative w-full max-w-[90vw] sm:max-w-[584px] sm:h-[319px] mx-auto">
+                    <div className="relative w-full max-w-[90vw] sm:max-w-[584px] sm:h-[550px] mx-auto">
                         {/* Image 1 — rotated -8° */}
                         <Image
                             src={img1Src || "/images/partnerships.png"}
