@@ -73,16 +73,18 @@ export default function AboutPage() {
         
         <section>
           <div className="container my-8">
-            <div className="flex flex-row sm:flex-col flex-wrap items-center lg:grid lg:grid-cols-2 p-4 gap-6">
+            <div className="flex flex-row sm:flex-col flex-wrap items-center lg:grid lg:grid-cols-2 px-4 md:px-6 lg:px-10 xl:px-20 2xl:px-24 gap-6">
               <div>
-                <h2 className="text-7xl font-semibold">Why Tech4R Exists</h2>
+                <h2 className="text-7xl font-semibold mb-4">Why Tech4R Exists</h2>
                 <p className="text-neutral-02">We believe resilience is built through proactive, tech-enabled solutions.</p>
               </div>
 
-              <div className="bg-color-03 my-2 p-4 rounded-xl">
-                  <div className="bg-white p-4 rounded">
-                    <FaQuoteLeft className="rounded w-16 h-16 text-color-01 mt-1" />
-                    <p className="text-4xl font-medium p-4">Our mission is to empower communities before, during, and after disasters strike.</p>
+              <div className="px-2 xl:px-10 2xl:px-24">
+                <div className="bg-color-03 my-2 p-4 py-14 rounded-xl">
+                    <div className="bg-white p-4 rounded">
+                      <FaQuoteLeft className="rounded w-16 h-16 text-color-01 mt-1" />
+                      <p className="text-4xl font-medium p-4 pb-8">Our mission is to empower communities before, during, and after disasters strike.</p>
+                  </div>
                 </div>
               </div>
             </div>
