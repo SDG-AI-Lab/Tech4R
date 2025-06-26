@@ -1,7 +1,8 @@
 import { supabase } from '@/lib/supabaseClient'
 import { Hero } from "@/components/Hero";
 import Link from 'next/link';
-
+import CTAImages from "@/components/CTAImages";
+import { FaLocationDot, FaCircleCheck } from "react-icons/fa6";
 
 type Speaker = {
   name: string;
@@ -87,6 +88,20 @@ export default async function EventsPage() {
           </li>
         ))}
       </ul>
+
+      <section>
+        <CTAImages 
+          title="What's Next?"
+          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          content={[
+            { icon: <FaLocationDot />, text: "Location" },
+            { icon: <FaCircleCheck />, text: "Lorem ipsum" },
+            { icon: <FaCircleCheck />, text: "Lorem ipsum" },
+            { icon: <FaCircleCheck />, text: "Lorem ipsum" },
+          ]}
+          // TODO: Set text, content img1Src, img2Src, img3Src
+          />
+      </section>
     </>
   );
 }

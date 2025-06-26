@@ -1,10 +1,7 @@
 'use client';
 import { usePathname } from 'next/navigation';
-import Link from 'next/link';
+import { Button } from '@/components/Button'
 import { routes } from '@/lib/routes';
-// import { FaRegCommentDots } from 'react-icons/fa';
-
-
 
 export default function CallToAction() {
     const pathname = usePathname();
@@ -15,23 +12,23 @@ export default function CallToAction() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center">
-            <div className="relative bg-[url('/phone.jpg')] bg-cover bg-right h-120 w-[90%] sm:px-6 lg:p-24 rounded-lg">
-                <div className="absolute inset-0 bg-color-01 opacity-90 rounded-lg text-white grid grid-cols-1 p-6 lg:grid lg:grid-cols-2 lg:px-24 lg:py-32 gap-8">
+        <div className="flex items-center justify-center">
+            <div className="relative bg-[url('/images/phone.jpg')] bg-cover bg-right h-[480px] w-[95%] lg:p-24 rounded-lg">
+                <div className="absolute inset-0 grid grid-cols-1 items-center bg-color-01 opacity-90 rounded-lg p-6 lg:grid-cols-2 lg:px-24 gap-8">
                     <div>
-                        <span className="text-4xl">
+                        <h2 className="text-4xl font-semibold text-white">
                             Have questions, ideas, or proposals?
-                        </span>
-                        <p className="py-8 mb-2">
+                        </h2>
+                        <p className="py-8 mb-2 text-lg text-white">
                             We’d love to hear from changemakers, collaborators, and curious minds alike.
                         </p>
-                        <Link href={routes.contact} className="mt-8 px-6 py-2.5 rounded-3xl transition-opacity duration-300 disabled:opacity-50 disabled:cursor-not-allowed bg-white text-neutral-03 hover:opacity-85">
+                        <Button variant="white" className="m-auto flex-none text-neutral-03" href={routes.contact}>
                             Contact Us
-                        </Link>
+                        </Button>
                     </div>
-                    <div></div>
-                </div>        
+                </div>
             </div>
         </div>
+
     );
 }
