@@ -1,11 +1,7 @@
-import { supabase } from '@/lib/supabaseClient'
 import { Hero } from '@/components/Hero'
 import { Button } from '@/components/Button'
 import Title from '@/components/Title'
-import {Carousel, CI} from "@/components/Carousel"
 import { VolunteerCarousel, TestimonyCarousel, AssignmentsCarousel } from './volunteerComponents'
-import Image from "next/image";
-import debugimg from "@/../public/images/debugimg.png"
 import { FaScrewdriverWrench, FaListOl } from "react-icons/fa6";
 
 //filling arrays with dummy data to test appearance
