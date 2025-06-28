@@ -10,12 +10,12 @@ export default function PillarTiles() {
     };
 
     return (
-    <div className="container lg:grid lg:grid-cols-4">
+    <div className="container lg:grid lg:grid-cols-4 p-8 gap-6">
         {pillars.info.map((item) => {
             
             return (
-                <div key={item.title} className="bg-neutral-01 mx-2 my-12 p-8 rounded-xl ">
-                    <h2 className="text-2xl font-semibold">{item.title}</h2>
+                <div key={item.title} className="bg-neutral-01 m-2 p-8 rounded-xl">
+                    <h2 className="text-2xl font-medium leading-[1.4]">{item.title}</h2>
                     <p className="text-neutral-02">{item.desc}</p>
                 </div>
             );
