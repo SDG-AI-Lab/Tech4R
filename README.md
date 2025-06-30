@@ -13,6 +13,13 @@ Tech4R is a digital initiative focused on disaster resilience through technology
 
 ---
 
+## 🌍 Environments
+
+- **Staging**: [https://tech4r.vercel.app/](https://tech4r.vercel.app/)
+- **Production**: TBD
+
+---
+
 ## 🚀 Getting Started (Local Setup)
 
 ### 1. **Clone the repository**
@@ -26,8 +33,6 @@ cd tech4r
 
 ```bash
 npm install
-# or
-yarn install
 ```
 
 ### 3. **Create your `.env.local` file**
