@@ -17,9 +17,9 @@ export default function TilePanel({ title, tiles }: TilePanelProps) {
   return (
     <div className="container rounded-lg bg-gray-100 py-12 mb-8">
         <div className="max-w-6xl mx-auto px-4">
-            {title && <h2 className="text-3xl font-bold mb-8 text-center">{title}</h2>}
+            {title && <h2 className="text-5xl font-semibold mb-8 text-center">{title}</h2>}
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 {tiles.map((tile, idx) => {
 
                     const content = (
