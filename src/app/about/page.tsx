@@ -5,6 +5,8 @@ import TilePanel from '@/components/TilePanel';
 import { partners } from './partners';
 import TrackRecord from './TrackRecord';
 import { FaQuoteLeft } from "react-icons/fa6";
+import { AboutTimeline } from "./AboutTimeline";
+import { SectionContainer } from "@/components/SectionContainer";
 
 export default function AboutPage() {
 
@@ -18,7 +20,6 @@ export default function AboutPage() {
     };
   });
 
-  console.log(partnerTiles);
 
   return (
     <>
@@ -36,8 +37,7 @@ export default function AboutPage() {
         />
       </Hero>
 
-      <div className="flex flex-col items-center justify-center">        
-
+      <div className="flex flex-col items-center justify-center gap-30">        
         <section>
             <div className="container">
               <div className="lg:grid lg:grid-cols-2 p-4 gap-4">
@@ -67,6 +67,10 @@ export default function AboutPage() {
           <TilePanel title="Host Organizations & Partners" tiles={partnerTiles} />  
         </section>
 
+        <SectionContainer>
+          <AboutTimeline />
+        </SectionContainer>
+        
         <section>
           <TrackRecord />
         </section>
@@ -78,7 +82,6 @@ export default function AboutPage() {
                 <h2 className="text-7xl font-semibold mb-4">Why Tech4R Exists</h2>
                 <p className="text-neutral-02">We believe resilience is built through proactive, tech-enabled solutions.</p>
               </div>
-
               <div className="px-2 xl:px-10 2xl:px-24">
                 <div className="bg-color-03 my-2 p-4 py-14 rounded-xl">
                     <div className="bg-white p-4 rounded">
