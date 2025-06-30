@@ -6,6 +6,7 @@ import { partners } from './partners';
 import TrackRecord from './TrackRecord';
 import { FaQuoteLeft } from "react-icons/fa6";
 import { AboutTimeline } from "./AboutTimeline";
+import { SectionContainer } from "@/components/SectionContainer";
 
 export default function AboutPage() {
 
@@ -36,7 +37,7 @@ export default function AboutPage() {
         />
       </Hero>
 
-      <div className="flex flex-col items-center justify-center">        
+      <div className="flex flex-col items-center justify-center gap-30">        
         <section>
             <div className="container">
               <div className="lg:grid lg:grid-cols-2 p-4 gap-4">
@@ -66,9 +67,9 @@ export default function AboutPage() {
           <TilePanel title="Host Organizations & Partners" tiles={partnerTiles} />  
         </section>
 
-        <section>
+        <SectionContainer>
           <AboutTimeline />
-        </section>
+        </SectionContainer>
         
         <section>
           <TrackRecord />
