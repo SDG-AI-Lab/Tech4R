@@ -12,15 +12,14 @@ export default function CallToAction() {
     }
 
     return (
-        <div className="flex items-center justify-center w-full">
-            <div className="relative h-[480px] w-[95%] xl:max-w-[2104px] bg-[url('/images/phone.jpg')] bg-cover bg-right rounded-lg p-6 lg:px-24 gap-8">
-
-                <div className="absolute inset-0 grid grid-cols-1 lg:grid-cols-2 items-center bg-color-01 opacity-90 rounded-lg p-6 lg:px-24 gap-8">
-                    <div>
+        <div className="flex flex-col items-center justify-center mx-4 sm:mx-6">
+            <div className="relative bg-[url('/images/phone.jpg')] bg-cover bg-right h-120 w-full sm:px-6 lg:p-24 rounded-[20px]">
+                <div className="absolute inset-0 bg-color-01 opacity-90 rounded-[20px] text-white px-4 lg:px-[120px] flex items-center">
+                    <div className='w-full sm:w-1/3'>
                         <h2 className="text-4xl font-semibold text-white">
                             Have questions, ideas, or proposals?
                         </h2>
-                        <p className="py-8 mb-2 text-lg text-white">
+                        <p className="py-8 mb-2 text-lg font-light text-white">
                             We’d love to hear from changemakers, collaborators, and curious minds alike.
                         </p>
                         <Button variant="white" className="m-auto flex-none text-neutral-03" href={routes.contact}>
