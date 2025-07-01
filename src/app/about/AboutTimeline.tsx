@@ -28,14 +28,14 @@ const AboutTimelineEntryStatusLabel: React.FC<{ status: AboutTimelineEntryStatus
   const statusConfigs: Record<AboutTimelineEntryStatus, { text: string; style?: React.CSSProperties; className?: string }> = {
     'completed': {
       text: 'Completed',
-      style: { 
+      style: {
         background: 'linear-gradient(rgba(232, 245, 233, 0.5), rgba(232, 245, 233, 0.5)), white',
         color: ABOUT_TIMELINE_COLORS.Primary
       }
     },
     'in-progress': {
       text: 'In Progress',
-      style: { 
+      style: {
         background: 'linear-gradient(rgba(227, 242, 253, 0.5), rgba(227, 242, 253, 0.5)), white',
         color: ABOUT_TIMELINE_COLORS.Secondary
       }
@@ -47,9 +47,9 @@ const AboutTimelineEntryStatusLabel: React.FC<{ status: AboutTimelineEntryStatus
   };
 
   const config = statusConfigs[status];
-  
+
   return (
-    <span 
+    <span
       className={`text-xs font-normal py-1 px-2.5 rounded-2xl ${config.className || ''}`}
       {...(config.style && { style: config.style })}
     >
@@ -68,15 +68,15 @@ const AboutTimelineEntryStatusBullet: React.FC<{ status: AboutTimelineEntryStatu
       </div>
     );
   }
-  
+
   if (status === 'in-progress') {
     return (
-        <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: ABOUT_TIMELINE_COLORS.Secondary }}>
-          <span className="text-color-02 text-sm font-bold">i</span>
-        </div>
+      <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: ABOUT_TIMELINE_COLORS.Secondary }}>
+        <span className="text-color-02 text-sm font-bold">i</span>
+      </div>
     );
   }
-  
+
   return (
     <div className="w-5 h-5 rounded-full bg-neutral-02 flex items-center justify-center flex-shrink-0">
       <span className="text-color-02 text-sm font-bold">i</span>
@@ -91,7 +91,7 @@ const AboutTimelineEntry: React.FC<AboutTimelineEntryProps> = ({ status, date, d
         <AboutTimelineEntryStatusBullet status={status} />
         {!isLast && <div className="w-0.5 bg-neutral-01 flex-grow"></div>}
       </div>
-      
+
       <div className="pb-5 flex flex-col gap-1">
         <div className="flex flex-column gap-2 items-center">
           <AboutTimelineEntryStatusLabel status={status} />
@@ -120,7 +120,7 @@ export const AboutTimeline: React.FC = async () => {
     );
   }
 
-    if (!milestones || milestones.length === 0) {
+  if (!milestones || milestones.length === 0) {
     return (
       <div className="bg-color-02 w-full px-6 py-12 sm:px-30 sm:py-30">
         <div className="flex flex-col gap-16">
@@ -135,17 +135,17 @@ export const AboutTimeline: React.FC = async () => {
   const midpoint = Math.ceil(milestones.length / 2) + 1;
   const leftColumn = milestones.slice(0, midpoint);
   const rightColumn = milestones.slice(midpoint);
-  
-  return <div className="bg-color-02 w-full px-6 py-12 sm:px-30 sm:py-30">
+
+  return <div className="bg-color-02 w-full rounded-[20px] px-6 py-12 sm:px-30 sm:py-30">
     <div className="flex flex-col gap-16">
       <h2 className="text-center text-5xl font-semibold text-white tracking-[-1.5px]">Timeline of major milestones</h2>
-      
+
       <div className="flex flex-col lg:flex-row lg:gap-x-20">
         <div className="flex-1 flex flex-col">
           {leftColumn.map((milestone) => (
-            <AboutTimelineEntry 
+            <AboutTimelineEntry
               key={milestone.id}
-              date={milestone.display_date} 
+              date={milestone.display_date}
               status={milestone.status}
               description={milestone.description}
             />
@@ -153,9 +153,9 @@ export const AboutTimeline: React.FC = async () => {
         </div>
         <div className="flex-1 flex flex-col">
           {rightColumn.map((milestone, index) => (
-            <AboutTimelineEntry 
+            <AboutTimelineEntry
               key={milestone.id}
-              date={milestone.display_date} 
+              date={milestone.display_date}
               status={milestone.status}
               description={milestone.description}
               isLast={index === rightColumn.length - 1}
