@@ -64,8 +64,12 @@ const EventsSection = ({
 
         {filteredEvents.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">
-              No {activeFilter.name.toLowerCase()} found.
+            <p className="text-neutral-02 text-lg">
+              No{" "}
+              {activeFilter.name === "All Events"
+                ? "events"
+                : activeFilter.name.toLowerCase()}{" "}
+              found.
             </p>
           </div>
         )}
