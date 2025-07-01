@@ -1,8 +1,8 @@
-import { supabase } from '@/lib/supabaseClient'
+import { supabase } from "@/lib/supabaseClient";
 import { Hero } from "@/components/Hero";
-import Link from 'next/link';
 import CTAImages from "@/components/CTAImages";
 import { FaLocationDot, FaCircleCheck } from "react-icons/fa6";
+import EventsSection from "@/components/Events/EventsSection";
 
 type Speaker = {
   name: string;
@@ -13,11 +13,12 @@ type EventSpeaker = {
   speakers: Speaker | Speaker[];
 };
 
-type EventCategory = {
+export type EventCategory = {
   name: string;
+  description: string;
 };
 
-type Event = {
+export type Event = {
   id: number;
   name: string;
   slug: string;
@@ -29,9 +30,10 @@ type Event = {
 };
 
 export default async function EventsPage() {
-  const { data: events, error } = await supabase
-    .from('events')
-    .select(`
+  const { data: events, error } = (await supabase
+    .from("events")
+    .select(
+      `
       id,
       name,
       description,
@@ -45,52 +47,70 @@ export default async function EventsPage() {
           bio
         )
       )
-    `)
-    .order('date', { ascending: false }) as { data: Event[] | null, error: Error | null };
+    `
+    )
+    .order("date", { ascending: false })) as {
+    data: Event[] | null;
+    error: Error | null;
+  };
 
-  if (error) {
-    console.error(error);
-    // return <p>Failed to load events.</p>
+  const { data: eventCategories, error: eventCategoriesError } = (await supabase
+    .from("event_categories")
+    .select("name, description")
+    .order("name", { ascending: true })) as {
+    data: EventCategory[] | null;
+    error: Error | null;
+  };
+
+  const upcomingEvents =
+    events?.filter((event) => {
+      const eventDate = new Date(event.date);
+      const today = new Date();
+      return eventDate >= today;
+    }) ?? [];
+
+  const pastEvents =
+    events?.filter((event) => {
+      const eventDate = new Date(event.date);
+      const today = new Date();
+      return eventDate < today;
+    }) ?? [];
+
+  if (error || eventCategoriesError) {
+    return (
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-red-600 py-14">
+        Failed to load events or event categories.
+        <br />
+        {error?.message || eventCategoriesError?.message || "Unknown error"}
+      </div>
+    );
   }
 
   return (
     <>
-      <Hero title={<span className="max-w-xl block">Past and Upcoming Events</span>} />
-      <div className="flex-1 flex items-center justify-center">
-        <p>Events</p>
-      </div>
-      <ul>
-        {events?.map(event => (
-          <li key={event.id} className="mb-6 border-b pb-4">
-            <h2 className="text-xl font-bold">
-              <Link href={`/event/${event.slug}`} className="hover:underline">
-                {event.name}
-              </Link>
-            </h2>
-            <p className="text-gray-600">{event.description}</p>
-            <p>{event.date} — {event.location}</p>
-            <p className="italic text-sm">Type: {event.event_categories?.name}</p>
-            <ul className="list-disc list-inside mt-2">
-              {event.event_speakers?.map(({ speakers }, idx) =>
-                Array.isArray(speakers)
-                  ? speakers.map((speaker, sIdx) => (
-                    <li key={`${idx}-${sIdx}`}>
-                      <strong>{speaker.name}:</strong> {speaker.bio}
-                    </li>
-                  ))
-                  : speakers && typeof speakers === 'object' ? (
-                    <li key={idx}>
-                      <strong>{(speakers as Speaker).name}:</strong> {(speakers as Speaker).bio}
-                    </li>
-                  ) : null
-              )}
-            </ul>
-          </li>
-        ))}
-      </ul>
+      <Hero
+        title={<span className="max-w-xl block">Past and Upcoming Events</span>}
+      />
+      <section className="w-full py-30 space-y-30">
+        {/* Upcoming Events Section */}
+        <EventsSection
+          title="Upcoming Events"
+          events={upcomingEvents}
+          eventCategories={eventCategories ?? []}
+          sectionId="upcoming-events"
+        />
+
+        {/* Past Events Section */}
+        <EventsSection
+          title="Past Events"
+          events={pastEvents}
+          eventCategories={eventCategories ?? []}
+          sectionId="past-events"
+        />
+      </section>
 
       <section>
-        <CTAImages 
+        <CTAImages
           title="What's Next?"
           text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
           content={[
@@ -103,9 +123,8 @@ export default async function EventsPage() {
           img2Src="/images/logo-undp.png"
           img3Src="/images/phone.jpg"
           // TODO: Set text, content img1Src, img2Src, img3Src
-          />
+        />
       </section>
     </>
   );
 }
-
