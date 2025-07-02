@@ -11,7 +11,7 @@ function Carousel({children, pages, size, className}:{children: Array<React.Reac
   let dots;
   if (pages>1){
     dots = (<div className="col-span-full m-0 text-center w-52">
-      {[...Array(pages).keys()].map(i => (<span key={i} onClick={()=>{setter(i)}} className={`opacity-50 select-none m-0.5 hover:opacity-70 ${(page==i)?'opacity-100':''}`}>●</span>))}
+      {[...Array(pages).keys()].map(i => (<span key={i} onClick={()=>{setter(i)}} className={`${(page==i)?'opacity-100':'opacity-50'} select-none m-0.5 hover:opacity-70`}>●</span>))}
     </div>)
   }
   return (

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "../Button";
-import { VolunteerCarousel } from "@/app/volunteers/volunteerComponents";
+import VolunteerCarousel from "@/app/volunteers/CarouselVolunteer";
 import { routes } from "@/lib/routes";
 import PillarTiles from "../PillarTiles";
 import Title from "../Title";
@@ -71,7 +71,7 @@ const HeroSection = () => {
       </div>
       {/* About */}
       <div className="relative w-full h-full z-10 container p-6 mx-auto flex lg:pl-[118px] rounded-[20px]">
-        <Image src="/images/debugimg.png" alt="ALT TEXT" width={552} height={550} className="flex-1 rounded-2xl"/>
+        <Image src="/images/debugimg.png" alt="ALT TEXT" width={552} height={550} className="flex-1 rounded-2xl hidden md:inline"/>
         <div className="container mx-auto flex-1 p-12 m-6">
           <Title>About Tech4R</Title>
           <p className="text-neutral-03 font-light leading-relaxed mtb-5">
@@ -87,7 +87,7 @@ const HeroSection = () => {
       {/* What We Do (link to Pillars) */}
       {/* Volunteers */}
       <div className="relative w-full h-full z-10 container p-6 mx-auto grid lg:pl-[118px] rounded-[20px]">
-        <Title>Introducting Our <span className="hidden md:inline">Skilled Team of&nbsp;</span>Volunteers</Title>
+        <Title>Introducing Our <span className="hidden md:inline">Skilled Team of&nbsp;</span>Volunteers</Title>
         <Button className="m-auto flex-none" href={routes.volunteers}><span className="hidden md:inline">Become a&nbsp;</span>Volunteer</Button>
         <VolunteerCarousel />
       </div>
@@ -95,12 +95,12 @@ const HeroSection = () => {
       {/* Events */}
       {/* Partner With Us */}
       <div className="relative w-full h-full z-10 container p-6 mx-auto flex lg:pl-[118px] rounded-[20px]">
-        <Image src="/images/debugimg.png" alt="ALT TEXT" width={552} height={550} className="flex-1 rounded-2xl"/>
+        <Image src="/images/debugimg.png" alt="ALT TEXT" width={552} height={550} className="flex-1 rounded-2xl hidden md:inline"/>
         <div className="container mx-auto flex-1 p-12 m-6">
           <Title>Partner With Us</Title>
           <p className="text-neutral-03 font-light leading-relaxed mtb-5">Tech4R offers a platform to innovate at the intersection of technology and humanitarian aid. Join us to scale impact.</p>
           <div className="mt-11 inline-flex">
-            <div className="mr-4 flex">
+            <div className="mr-4 hidden md:flex">
               <Image alt="" src="/images/debugimg.png" width={60} height={60} className='border-background border-2 h-12 w-12 rounded-full' />
               <Image alt="" src="/images/debugimg.png" width={60} height={60} className='border-background border-2 h-12 w-12 rounded-full ml-[-15px]' />
               <Image alt="" src="/images/debugimg.png" width={60} height={60} className='border-background border-2 h-12 w-12 rounded-full ml-[-15px]' />

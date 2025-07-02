@@ -1,7 +1,9 @@
 import { Hero } from '@/components/Hero'
 import { Button } from '@/components/Button'
 import Title from '@/components/Title'
-import { VolunteerCarousel, TestimonyCarousel, AssignmentsCarousel } from './volunteerComponents'
+import VolunteerCarousel from './CarouselVolunteer'
+import TestimonyCarousel from './CarouselTestimony'
+import AssignmentsCarousel from './CarouselAssignments'
 import { FaScrewdriverWrench, FaListOl } from "react-icons/fa6";
 
 //filling arrays with dummy data to test appearance
@@ -30,13 +32,14 @@ export default function VolunteersPage() {
           <VolunteerCarousel />
         </div>
 
-        <div className="container mx-auto p-4 m-6 bg-neutral-01 rounded-3xl">
+        <div className="container mx-auto p-16 m-6 bg-neutral-01 rounded-3xl">
           <Title>Required Skills</Title>
-          <ul className="grid gap-4 grid-cols-2 md:grid-cols-3 place-items-center place-content-center">
+          <p className="text-neutral-03 font-light text-lg leading-relaxed text-center">From data science to digital storytelling, we welcome volunteers with diverse tech and non-tech backgrounds.</p>
+          <ul className="grid gap-4 grid-cols-1 md:grid-cols-3 place-items-center place-content-center">
             {skills.map(e => (
-              <li key={e.name} className="rounded-2xl p-4 w-full m-3 contain-content bg-background">
+              <li key={e.name} className="rounded-2xl p-11 w-full m-3 contain-content bg-background">
                 {(typeof e.ico == 'string')?(<></>):(<e.ico className = "text-4xl text-color-01"/>)}
-                <h5 className='text-2xl font-bold'>{e.name}</h5>
+                <h5 className='text-2xl font-medium mt-2.5'>{e.name}</h5>
                 <p className='text-neutral-02 font-light leading-relaxed'>{e.desc}</p>
               </li>
             ))}
@@ -45,11 +48,11 @@ export default function VolunteersPage() {
 
         <div className="container mx-auto p-4 m-6">
           <Title>How to Get Involved as a Volunteer</Title>
-          <ul className={`grid gap-4 grid-cols-2 md:grid-cols-${steps.length} place-items-center place-content-center`}>
+          <ul className={`grid gap-4 grid-cols-1 md:grid-cols-${steps.length} place-items-center place-content-center`}>
             {steps.map((e,i) => (
               <li key={`step${i}`} className="rounded-2xl p-4 w-full m-3 contain-content text-center bg-background border-1 border-neutral-500 border-opacity-20">
                 {(typeof e.ico == 'string')?(<></>):(<e.ico className = "text-4xl m-auto text-color-01"/>)}
-                <h5 className='text-2xl font-bold'>{e.name}</h5>
+                <h5 className='text-2xl font-bold mt-6'>{e.name}</h5>
                 <p className='text-neutral-03'>{e.desc}</p>
               </li>
             ))}
