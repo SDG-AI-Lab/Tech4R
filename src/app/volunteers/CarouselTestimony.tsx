@@ -4,13 +4,13 @@ import Image from "next/image";
 import { FaQuoteLeft } from "react-icons/fa6";
 
 //dummy data for testing purposes:
-const testimony = Array(8).fill({ title: "Testimony", quote: "Lorem Ipsum etc etc etc.", name: "Person Person", vtitle: "Title", vsrc: "/images/debugimg.png" });
+//const testimony = Array(8).fill({ title: "Testimony", quote: "Lorem Ipsum etc etc etc.", name: "Person Person", vtitle: "Title", vsrc: "/images/debugimg.png" });
 async function TestimonyCarousel() {
-  /*const { data: testimony, error } = await supabase.from('testimonials').select('name, quote');
+  const { data: testimony, error } = await supabase.from('testimonials').select('name, quote');
   if (error) {
       console.error(error)
       return (<p>Failed to load</p>);
-  }*/
+  }/**/
   return (
     <Carousel pages={1 + Math.floor((testimony.length - 1) / 6)} size={6} className="grid gap-4 grid-cols-1 md:grid-cols-3 place-items-center place-content-center">
       {testimony.map((e, i) => (
