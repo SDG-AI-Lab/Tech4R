@@ -10,7 +10,6 @@ interface Category {
   name: string;
   description?: string;
   image_url?: string;
-  icon_url?: string;
 }
 
 export default function ProjectsSolutionsSection() {
@@ -35,9 +34,16 @@ export default function ProjectsSolutionsSection() {
   }, []);
 
   useEffect(() => {
-    if (leftRef.current) {
-      setLeftHeight(leftRef.current.offsetHeight);
-    }
+    if (!leftRef.current) return;
+    const updateHeight = () => setLeftHeight(leftRef.current?.offsetHeight);
+    updateHeight();
+    const observer = new window.ResizeObserver(updateHeight);
+    observer.observe(leftRef.current);
+    window.addEventListener("resize", updateHeight);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateHeight);
+    };
   }, [categories, selectedIndex, loading]);
 
   if (loading) {
