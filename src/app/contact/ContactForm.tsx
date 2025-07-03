@@ -55,7 +55,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     placeholder="Type your full name"
                     required
-                    className="mt-1 block w-full rounded-md bg-gray-200 border-gray-300 shadow-sm focus:ring-color-01 focus:border-color-01"
+                    className="mt-1 block w-full p-4 rounded-md bg-gray-200 border-gray-300 shadow-sm focus:ring-color-01 focus:border-color-01"
                   />
                 </div>
 
@@ -71,7 +71,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     placeholder="Type your email address"
                     required
-                    className="mt-1 block w-full rounded-md bg-gray-200 border-gray-300 shadow-sm focus:ring-color-01 focus:border-color-01"
+                    className="mt-1 block w-full p-4 rounded-md bg-gray-200 border-gray-300 shadow-sm focus:ring-color-01 focus:border-color-01"
                   />
                 </div>
               </div>
@@ -88,7 +88,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   placeholder="Type your message"
                   required
-                  className="mt-1 block w-full rounded-md bg-gray-200 border-gray-300 shadow-sm focus:ring-color-01 focus:border-color-01"
+                  className="mt-1 block w-full p-4 rounded-md bg-gray-200 border-gray-300 shadow-sm focus:ring-color-01 focus:border-color-01"
                 ></textarea>
               </div>
 

@@ -8,7 +8,7 @@ import { FaCircleCheck } from "react-icons/fa6";
 console.log(debugimg)
 
 //Dummy data; todo: pull from actual database or hardcode it in
-const partners = Array(6).fill({name:"Partner X",desc:"Lorem Ipsum",logo:debugimg});
+const partners = Array(6).fill({ name: "Partner X", desc: "Lorem Ipsum", logo: debugimg });
 const reasons = [
   "Reason here",
   "Reason here",
@@ -23,17 +23,16 @@ export default function PartnerWithUsPage() {
       <section className="flex-1">
         <div className="container flex mx-auto p-4 m-6">
           <Image src={debugimg} alt="ALT TEXT" height={70} className="flex-1 rounded-3xl"/>
-          
           <div className="container mx-auto flex-1 p-12 m-6">
             <Title className="text-left">Why Partner with Tech4R?</Title>
             <p className="text-neutral-03 p-4 mb-4">Lorem ipsum etc etc etc etc<br />Description goes here</p>
             <ul className="grid gap-4 grid-cols-2 place-items-center place-content-center text-neutral-03 p-4 mb-4">
-              {reasons.map(e => (<li key={e} className="inline w-full"><FaCircleCheck className="text-color-01 inline align-sub mr-4"/>{e}</li>))}
+              {reasons.map(e => (<li key={e} className="inline w-full"><FaCircleCheck className="text-color-01 inline align-sub mr-4" />{e}</li>))}
             </ul>
             <Button className="m-auto flex-none" href="/contact">Email us<span className="hidden md:inline">&nbsp;for Partnership Inquiries</span></Button>
           </div>
-          
-        </div>  
+
+        </div>
         <div className="container mx-auto p-4 m-6 bg-neutral-01 rounded-3xl">
           <Title>Host Organisations & Partners</Title>
           <ul className="grid gap-4 grid-cols-2 md:grid-cols-3 place-items-center place-content-center">
