@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/Button";
 import Link from "next/link";
 import { routes } from "@/lib/routes";
@@ -17,12 +17,14 @@ export default function ProjectsSolutionsSection() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [leftHeight, setLeftHeight] = useState<number | undefined>(undefined);
+  const leftRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchCategories = async () => {
       const { data } = await supabase
         .from("categories")
-        .select("id, name, description, image_url, icon_url");
+        .select("id, name, description, image_url");
       if (data) {
         setCategories(data);
         setSelectedIndex(0);
@@ -31,6 +33,12 @@ export default function ProjectsSolutionsSection() {
     };
     fetchCategories();
   }, []);
+
+  useEffect(() => {
+    if (leftRef.current) {
+      setLeftHeight(leftRef.current.offsetHeight);
+    }
+  }, [categories, selectedIndex, loading]);
 
   if (loading) {
     return (
@@ -43,7 +51,7 @@ export default function ProjectsSolutionsSection() {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 items-center md:items-start px-4">
-        <div className="flex-1 w-full max-w-md">
+        <div ref={leftRef} className="flex-1 w-full max-w-md">
           <h2 className="text-4xl font-bold text-neutral-04 mb-8">Projects & Solutions</h2>
           <div className="flex flex-col gap-4 mb-8">
             {categories.map((cat, idx) => (
@@ -113,13 +121,16 @@ export default function ProjectsSolutionsSection() {
             ))}
           </div>
           <Link href={routes.projects}>
-            <Button className="rounded-full px-8 py-3 text-base bg-blue-500 text-white hover:bg-blue-600">
+            <Button>
               See all projects
             </Button>
           </Link>
         </div>
         <div className="flex-1 flex justify-center items-center w-full">
-          <div className="bg-[#c2e0fa] rounded-2xl p-6 w-full max-w-md flex justify-center items-center aspect-square">
+          <div
+            className="bg-[#c2e0fa] rounded-2xl p-6 w-full max-w-md flex justify-center items-center"
+            style={leftHeight ? { height: leftHeight } : {}}
+          >
             {selected?.image_url ? (
               <img
                 src={selected.image_url}
