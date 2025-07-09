@@ -1,6 +1,6 @@
 import { supabase } from '@/lib/supabaseClient'
 import { Carousel, CI } from "@/components/Carousel"
-import Image from "next/image";
+//import Image from "next/image";
 import { FaQuoteLeft } from "react-icons/fa6";
 
 //dummy data for testing purposes:
