@@ -1,9 +1,10 @@
 "use client";
 
 import { Event, EventCategory } from "@/app/events/page";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EventFilters from "./EventFilters";
 import EventCard from "./EventCard";
+import { useSearchParams } from "next/navigation";
 
 interface EventsSectionProps {
   title: string;
@@ -19,10 +20,39 @@ const EventsSection = ({
   sectionId,
 }: EventsSectionProps) => {
   const [activeFilter, setActiveFilter] = useState({
+    id: "all",
     name: "All Events",
     description:
       "Explore our complete range of technology-focused events designed to build resilience and create innovative solutions for global challenges.",
   });
+
+  const searchParams = useSearchParams();
+
+  const categoryId = searchParams.get("categoryId");
+
+  // Effect to set active filter based on URL parameter
+  useEffect(() => {
+    if (categoryId) {
+      const matchingCategory = eventCategories.find(
+        (category) => category.id === categoryId
+      );
+
+      if (matchingCategory) {
+        setActiveFilter({
+          id: matchingCategory.id,
+          name: matchingCategory.name,
+          description: matchingCategory.description,
+        });
+      }
+    } else {
+      setActiveFilter({
+        id: "all",
+        name: "All Events",
+        description:
+          "Explore our complete range of technology-focused events designed to build resilience and create innovative solutions for global challenges.",
+      });
+    }
+  }, [categoryId, eventCategories]);
 
   const filteredEvents = events.filter((event) => {
     if (activeFilter.name === "All Events") return true;
@@ -31,6 +61,11 @@ const EventsSection = ({
       activeFilter.name.toLowerCase()
     );
   });
+
+  const handleFilterChange = (filter: EventCategory) => {
+    setActiveFilter(filter);
+  };
+
   return (
     <section id={sectionId} aria-labelledby={`${sectionId}-heading`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,7 +79,7 @@ const EventsSection = ({
         <EventFilters
           options={eventCategories}
           activeFilter={activeFilter}
-          onFilterChange={setActiveFilter}
+          onFilterChange={handleFilterChange}
         />
 
         <div className="mb-8">
