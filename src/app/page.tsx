@@ -1,4 +1,5 @@
 import HeroSection from "@/components/HomePage/HeroSection";
+import ProjectsSolutionsSection from "@/components/HomePage/ProjectsSolutionsSection";
 import PillarTiles from "@/components/PillarTiles";
 import TrackRecord from "@/app/about/TrackRecord";
 import CTAImages from "@/components/CTAImages";
@@ -32,11 +33,9 @@ export default async function Home() {
         <section>
           <PillarTiles />
         </section>
-
         <section>
           <TrackRecord />
         </section>
-
         <section>
           <CTAImages
             title="What We Do"
@@ -51,6 +50,9 @@ export default async function Home() {
             ]}
             // TODO: Set img1Src, img2Src, img3Src
           />
+        </section>
+        <section>
+          <ProjectsSolutionsSection />
         </section>
 
         <section>
