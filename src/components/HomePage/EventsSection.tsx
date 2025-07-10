@@ -1,6 +1,6 @@
 "use client";
 
-import { EventCategory } from "@/app/page";
+import { EventCategory } from "@/app/events/page";
 import EventCard from "./EventCard";
 import { useRouter } from "next/navigation";
 
@@ -10,6 +10,7 @@ interface EventsSectionProps {
 
 const EventsSection = ({ events }: EventsSectionProps) => {
   const router = useRouter();
+
   const handleSeeAll = (eventId: string) => {
     router.push(`/events?categoryId=${eventId}`);
   };

@@ -16,6 +16,7 @@ const EventFilters = ({
       <Button
         onClick={() =>
           onFilterChange({
+            id: "all",
             name: "All Events",
             description:
               "Explore our complete range of technology-focused events designed to build resilience and create innovative solutions for global challenges.",

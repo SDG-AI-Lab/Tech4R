@@ -7,12 +7,7 @@ import { routes } from "@/lib/routes";
 import { FaCircleCheck } from "react-icons/fa6";
 import EventsSection from "@/components/HomePage/EventsSection";
 import { supabase } from "@/lib/supabaseClient";
-
-export type EventCategory = {
-  id: string;
-  name: string;
-  description: string;
-};
+import { EventCategory } from "./events/page";
 
 export default async function Home() {
   const { data: eventCategories, error: eventCategoriesError } = (await supabase
