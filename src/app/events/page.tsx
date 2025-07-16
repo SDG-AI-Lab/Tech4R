@@ -4,12 +4,12 @@ import CTAImages from "@/components/CTAImages";
 import { FaLocationDot, FaCircleCheck } from "react-icons/fa6";
 import EventsSection from "@/components/Events/EventsSection";
 
-type Speaker = {
+export type Speaker = {
   name: string;
   bio: string;
 };
 
-type EventSpeaker = {
+export type EventSpeaker = {
   speakers: Speaker | Speaker[];
 };
 
@@ -27,6 +27,7 @@ export type Event = {
   location: string;
   event_categories?: EventCategory;
   event_speakers?: EventSpeaker[];
+  photos?: string[];
 };
 
 export default async function EventsPage() {
@@ -89,7 +90,9 @@ export default async function EventsPage() {
   return (
     <>
       <Hero
-        title={<span className="max-w-xl block">Past and Upcoming Events</span>}
+        title={
+          <span className="max-w-[538px] block">Past and Upcoming Events</span>
+        }
       />
       <section className="w-full py-30 space-y-30">
         {/* Upcoming Events Section */}
