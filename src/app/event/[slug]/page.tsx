@@ -20,6 +20,7 @@ export default async function EventPage({
       slug,
       date,
       location,
+      photos,
       event_categories ( name ),
       event_speakers (
         speakers (
@@ -51,7 +52,6 @@ export default async function EventPage({
     );
   }
 
-  console.log("Event", event);
   return (
     <>
       <Hero
