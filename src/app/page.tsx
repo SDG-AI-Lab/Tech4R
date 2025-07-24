@@ -3,17 +3,28 @@ import ProjectsSolutionsSection from "@/components/HomePage/ProjectsSolutionsSec
 import PillarTiles from "@/components/PillarTiles";
 import TrackRecord from "@/app/about/TrackRecord";
 import CTAImages from "@/components/CTAImages";
-import { routes } from '@/lib/routes';
+import { routes } from "@/lib/routes";
 import { FaCircleCheck } from "react-icons/fa6";
+import EventsSection from "@/components/HomePage/EventsSection";
+import { supabase } from "@/lib/supabaseClient";
+import { EventCategory } from "./events/page";
 
-export default function Home() {
+export default async function Home() {
+  const { data: eventCategories, error: eventCategoriesError } = (await supabase
+    .from("event_categories")
+    .select("id, name, description")
+    .order("name", { ascending: true })) as {
+    data: EventCategory[] | null;
+    error: Error | null;
+  };
+
   return (
     <>
       <section className="sm:mx-6">
-        <HeroSection />      
+        <HeroSection />
       </section>
 
-      <div className="flex flex-col items-center justify-center">  
+      <div className="flex flex-col items-center justify-center">
         <section>
           <PillarTiles />
         </section>
@@ -21,7 +32,7 @@ export default function Home() {
           <TrackRecord />
         </section>
         <section>
-          <CTAImages 
+          <CTAImages
             title="What We Do"
             text="Tech4R operates across four strategic pillars that guide our mission to deliver impactful digital solutions for disaster resilience."
             btnHref={routes.pillars}
@@ -33,10 +44,22 @@ export default function Home() {
               { icon: <FaCircleCheck />, text: "Resilience" },
             ]}
             // TODO: Set img1Src, img2Src, img3Src
-           />
+          />
         </section>
         <section>
           <ProjectsSolutionsSection />
+        </section>
+
+        <section>
+          {eventCategoriesError ? (
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-red-600 py-14">
+              Failed to load event categories.
+              <br />
+              {eventCategoriesError?.message || "Unknown error"}
+            </div>
+          ) : (
+            <EventsSection events={eventCategories || []} />
+          )}
         </section>
       </div>
     </>
