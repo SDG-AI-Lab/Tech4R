@@ -16,14 +16,27 @@ export default function ContactForm() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    // TODO: Send to a backend: Formspree, Netlify?
-    console.log(formData);
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
 
-    // Simulate success
-    setSubmitted(true);
-  };
+    if (response.ok) {
+      setSubmitted(true);
+    } else {
+      console.error('Submission failed');
+      alert('Something went wrong. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Something went wrong. Please try again.');
+  }
+};
+
 
   return ( 
     <div className="relative">      

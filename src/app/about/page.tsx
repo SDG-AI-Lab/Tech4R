@@ -1,25 +1,13 @@
 import { Hero } from "@/components/Hero";
 import PillarTiles from "@/components/PillarTiles";
 import Image from 'next/image';
-import TilePanel from '@/components/TilePanel';
-import { partners } from './partners';
 import TrackRecord from './TrackRecord';
 import { FaQuoteLeft } from "react-icons/fa6";
 import { AboutTimeline } from "./AboutTimeline";
 import { SectionContainer } from "@/components/SectionContainer";
+import PartnerSection from './PartnerSection';
 
 export default function AboutPage() {
-
-  const partnerTiles = partners.info.map((item) => {
-    return {
-      name: item.name,
-      desc: item.desc || '',
-      icon: <Image src={item.icon} alt={item.name} width={110} height={110} />,
-      url: item.url,
-      classNames: "lg:h-70"
-    };
-  });
-
 
   return (
     <>
@@ -62,11 +50,11 @@ export default function AboutPage() {
         <section>
           <PillarTiles />
         </section>
-
-        <section>
-          <TilePanel title="Host Organizations & Partners" tiles={partnerTiles} />
-        </section>
-
+        
+        <SectionContainer>
+          <PartnerSection />
+        </SectionContainer>
+        
         <SectionContainer>
           <AboutTimeline />
         </SectionContainer>
