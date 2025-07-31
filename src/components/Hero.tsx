@@ -23,9 +23,8 @@ export const Hero = ({
 
   return (
     <section
-      className={`relative text-center bg-color-02 w-full ${
-        children ? "pt-22 pb-0 mb-26" : "h-80 flex items-center"
-      }`}
+      className={`relative text-center bg-color-02 w-full ${children ? "pt-22 pb-0 mb-26" : "h-80 flex items-center"
+        }`}
     >
       <div className="container mx-auto flex flex-col gap-4 -mt-8">
         {path === "event" ? (
@@ -39,9 +38,8 @@ export const Hero = ({
         )}
         {subtitle && (
           <p
-            className={`text-lg/8 max-w-[31rem] mx-auto text-neutral-01 font-light ${
-              children ? "mb-26" : ""
-            }`}
+            className={`text-lg/8 max-w-[31rem] mx-auto text-neutral-01 font-light ${children ? "mb-26" : ""
+              }`}
           >
             {subtitle}
           </p>
@@ -62,7 +60,7 @@ export const Hero = ({
       {children && (
         <div className="relative">
           <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-white" />
-          <div className="container mx-auto relative">{children}</div>
+          <div className="container mx-auto relative  px-4 md:px-8 lg:px-16 xl:px-20">{children}</div>
         </div>
       )}
     </section>

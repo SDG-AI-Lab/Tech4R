@@ -32,25 +32,25 @@ export default function AboutPage() {
           alt="Team collaboration in disaster response"
           width={1440}
           height={960}
-          className="w-full rounded-3xl object-cover"
+          className="w-full rounded-2xl object-cover"
           priority
         />
       </Hero>
 
-      <div className="flex flex-col items-center justify-center gap-30">
+      <div className="flex flex-col items-center justify-center">
         <section>
-          <div className="container">
+          <div className="container px-4 md:px-8 lg:px-16 xl:px-20">
             <div className="lg:grid lg:grid-cols-2 gap-4">
               <div>
-                <Image src="/images/work-desk.jpg" alt="Work desk" width={601} height={550} className="rounded-3xl" />
+                <Image src="/images/work-desk.jpg" alt="Work desk" width={552} height={550} className="rounded-2xl" />
               </div>
 
-              <div className="flex flex-col gap-4 h-fit my-auto">
-                <h2 className="text-5xl font-semibold">Our Mission</h2>
+              <div className="flex flex-col gap-4 h-fit my-8">
+                <h2 className="text-4xl font-semibold">Our Mission</h2>
                 <p className="text-neutral-03">
                   We believe resilience is built through proactive, tech-enabled solutions. We bridge the gap between crisis and recovery by applying data, AI, and emerging technologies. Our mission is to empower communities before, during, and after disasters strike.
                 </p>
-                <h2 className="text-5xl font-semibold">Our Roots</h2>
+                <h2 className="text-4xl font-semibold">Our Roots</h2>
                 <p className="text-neutral-03">
                   Tech4R is hosted by the UNDP ICPSD and supported by partners like the SDG AI Lab, among others committed to sustainable development and humanitarian innovation.
                 </p>
