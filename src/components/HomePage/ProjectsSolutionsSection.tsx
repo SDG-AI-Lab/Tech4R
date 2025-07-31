@@ -55,23 +55,23 @@ export default function ProjectsSolutionsSection() {
   const selected = categories[selectedIndex];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 items-center md:items-start px-4">
-        <div ref={leftRef} className="flex-1 w-full max-w-md">
+    <section className="py-20 bg-white w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+      <div className="w-full flex flex-col 2xl:flex-row gap-8 lg:gap-24 xl:gap-40 2xl:gap-48 3xl:gap-56">
+        <div ref={leftRef} className="w-full 2xl:w-1/2 flex flex-col justify-center">
           <h2 className="text-4xl font-bold text-neutral-04 mb-8">Projects & Solutions</h2>
-          <div className="flex flex-col gap-4 mb-8">
+          <div className="flex flex-col gap-4 mb-8 flex-1">
             {categories.map((cat, idx) => (
               <button
                 key={cat.id}
-                className={`relative text-left rounded-2xl px-6 py-5 border transition-all flex flex-col gap-1 shadow-sm ${
+                className={`relative text-left rounded-2xl px-6 py-8 border transition-all flex shadow-sm min-h-[120px] ${
                   idx === selectedIndex
-                    ? "bg-[#2487CE] text-white border-[#2487CE]"
-                    : "bg-[#F6F5F5] text-neutral-04 border-transparent hover:bg-[#ECECEC]"
+                    ? "bg-[#2487CE] text-white border-[#2487CE] flex-col gap-1"
+                    : "bg-[#F6F5F5] text-neutral-04 border-transparent hover:bg-[#ECECEC] items-center"
                 }`}
                 onClick={() => setSelectedIndex(idx)}
                 style={{ cursor: "pointer" }}
               >
-                <div className="flex items-center justify-between w-full">
+                <div className={`flex items-center justify-between w-full ${idx === selectedIndex ? "" : "flex-1"}`}>
                   <div className="flex items-center">
                     {(() => {
                       if (cat.name === "Predictive Analytics") {
@@ -112,7 +112,7 @@ export default function ProjectsSolutionsSection() {
                         return null;
                       }
                     })()}
-                    <span className={`font-bold text-lg ${idx === selectedIndex ? "text-white" : "text-neutral-04"}`}>{cat.name}</span>
+                    <span className={`font-bold text-lg whitespace-nowrap overflow-hidden text-ellipsis ${idx === selectedIndex ? "text-white" : "text-neutral-04"}`}>{cat.name}</span>
                   </div>
                   <span className={`${idx === selectedIndex ? "text-white" : "text-neutral-04"} absolute top-4 right-4 w-5 h-5`} aria-hidden>
                     <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -120,30 +120,32 @@ export default function ProjectsSolutionsSection() {
                     </svg>
                   </span>
                 </div>
-                {idx === selectedIndex && (
-                  <span className={`block mt-1 text-base text-white/90 ml-10`}>{cat.description}</span>
-                )}
+                <span className={`block mt-4 text-base ml-10 ${idx === selectedIndex ? "text-white/90" : "text-transparent"}`}>
+                  {cat.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
+                </span>
               </button>
             ))}
           </div>
-          <Link href={routes.projects}>
+          <Link href={routes.projects} className="mt-auto">
             <Button>
               See all projects
             </Button>
           </Link>
         </div>
-        <div className="flex-1 flex justify-center items-center w-full">
-          <div
-            className="bg-[#c2e0fa] rounded-2xl p-6 w-full max-w-md flex justify-center items-center"
+        <div className="w-full 2xl:w-1/2 flex justify-center items-start">
+          <div 
+            className="bg-[#c2e0fa] rounded-2xl p-6 w-full max-w-[350px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[500px] xl:max-w-[600px] 2xl:max-w-none flex justify-center items-center"
             style={leftHeight ? { height: leftHeight } : {}}
           >
             {selected?.image_url ? (
-              <img
-                src={selected.image_url}
-                alt={selected.name}
-                className="rounded-xl object-cover w-full h-full max-h-[350px] max-w-[350px]"
-                style={{ background: "#fff" }}
-              />
+              <div className="w-full h-full flex justify-center items-center p-4">
+                <img
+                  src={selected.image_url}
+                  alt={selected.name}
+                  className="rounded-xl object-cover aspect-square w-[400px] h-[400px] sm:w-[450px] sm:h-[450px] md:w-[500px] md:h-[500px] lg:w-[550px] lg:h-[550px] xl:w-[600px] xl:h-[600px]"
+                  style={{ background: "#fff" }}
+                />
+              </div>
             ) : (
               <div className="w-full h-full flex items-center justify-center text-neutral-03">No image</div>
             )}
