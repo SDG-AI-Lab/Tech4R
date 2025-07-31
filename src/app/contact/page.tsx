@@ -15,8 +15,6 @@ export default function ContactPage() {
     };
   });
 
-  console.log(socialTiles);
-
   return (
     <>
       <Hero 
@@ -32,9 +30,7 @@ export default function ContactPage() {
 
       <ContactForm />
 
-      <div className="flex-1 flex items-center justify-center">
-        <TilePanel title="Get In Touch" tiles={socialTiles} />      
-      </div>
+      <TilePanel title="Get In Touch" tiles={socialTiles} />      
     </>
   );
 }
