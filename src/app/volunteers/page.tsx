@@ -5,6 +5,9 @@ import VolunteerCarousel from './CarouselVolunteer'
 import TestimonyCarousel from './CarouselTestimony'
 import AssignmentsCarousel from './CarouselAssignments'
 import { FaScrewdriverWrench, FaListOl } from "react-icons/fa6";
+import { generateVolunteersMetadata } from '@/lib/seo';
+
+export const metadata = generateVolunteersMetadata();
 
 //filling arrays with dummy data to test appearance
 const skills = [

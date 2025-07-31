@@ -2,6 +2,9 @@ import { Hero } from "@/components/Hero";
 import TilePanel from '@/components/TilePanel';
 import ContactForm from './ContactForm';
 import { socials } from './socialmedia';
+import { generateContactMetadata } from '@/lib/seo';
+
+export const metadata = generateContactMetadata();
 
 export default function ContactPage() {
 

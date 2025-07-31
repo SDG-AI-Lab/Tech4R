@@ -4,6 +4,9 @@ import Title from '@/components/Title'
 import Image from "next/image";
 import debugimg from "@/../public/images/debugimg.png"
 import { FaCircleCheck } from "react-icons/fa6";
+import { generatePartnerMetadata } from '@/lib/seo';
+
+export const metadata = generatePartnerMetadata();
 
 console.log(debugimg)
 
