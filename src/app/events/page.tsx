@@ -5,6 +5,7 @@ import { FaLocationDot, FaCircleCheck } from "react-icons/fa6";
 import EventsSection from "@/components/Events/EventsSection";
 import { generateEventsMetadata } from "@/lib/seo";
 import { StructuredData } from "@/components/StructuredData";
+import { Suspense } from "react";
 
 export const metadata = generateEventsMetadata();
 
@@ -18,6 +19,7 @@ export type EventSpeaker = {
 };
 
 export type EventCategory = {
+  id: string;
   name: string;
   description: string;
 };
@@ -61,7 +63,7 @@ export default async function EventsPage() {
 
   const { data: eventCategories, error: eventCategoriesError } = (await supabase
     .from("event_categories")
-    .select("name, description")
+    .select("id, name, description")
     .order("name", { ascending: true })) as {
     data: EventCategory[] | null;
     error: Error | null;
@@ -103,21 +105,29 @@ export default async function EventsPage() {
         }
       />
       <section className="w-full py-30 space-y-30">
-        {/* Upcoming Events Section */}
-        <EventsSection
-          title="Upcoming Events"
-          events={upcomingEvents}
-          eventCategories={eventCategories ?? []}
-          sectionId="upcoming-events"
-        />
+        <Suspense
+          fallback={
+            <div className="w-full flex items-center justify-center text-color-01 animate-pulse">
+              Loaing...
+            </div>
+          }
+        >
+          {/* Upcoming Events Section */}
+          <EventsSection
+            title="Upcoming Events"
+            events={upcomingEvents}
+            eventCategories={eventCategories ?? []}
+            sectionId="upcoming-events"
+          />
 
-        {/* Past Events Section */}
-        <EventsSection
-          title="Past Events"
-          events={pastEvents}
-          eventCategories={eventCategories ?? []}
-          sectionId="past-events"
-        />
+          {/* Past Events Section */}
+          <EventsSection
+            title="Past Events"
+            events={pastEvents}
+            eventCategories={eventCategories ?? []}
+            sectionId="past-events"
+          />
+        </Suspense>
       </section>
 
       <section>
