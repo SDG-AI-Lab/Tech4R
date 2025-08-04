@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+      - staging
+  pull_request:
+    branches:
+      - staging
+    types: [opened, synchronize, reopened]
 
 jobs:
   deploy:
@@ -18,7 +23,32 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
+      - name: Set deployment type
+        id: deployment
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "type=preview (PR #${{ github.event.number }})" >> $GITHUB_OUTPUT
+            echo "flags=" >> $GITHUB_OUTPUT
+          elif [ "${{ github.ref_name }}" = "main" ]; then
+            echo "type=production" >> $GITHUB_OUTPUT
+            echo "flags=--prod" >> $GITHUB_OUTPUT
+          elif [ "${{ github.ref_name }}" = "staging" ]; then
+            echo "type=staging" >> $GITHUB_OUTPUT
+            echo "flags=--target staging" >> $GITHUB_OUTPUT
+          else
+            echo "type=preview" >> $GITHUB_OUTPUT
+            echo "flags=" >> $GITHUB_OUTPUT
+          fi
+
       - name: Deploy to Vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: npx vercel --yes --token $VERCEL_TOKEN --prod
+        run: |
+          npx vercel --yes --token $VERCEL_TOKEN ${{ steps.deployment.outputs.flags }}
+          
+      - name: Comment deployment info
+        if: github.event_name == 'push'
+        run: |
+          echo "🚀 Deployed to ${{ steps.deployment.outputs.type }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Commit: ${{ github.sha }}"
