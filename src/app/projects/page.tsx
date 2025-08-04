@@ -1,6 +1,9 @@
 import { supabase } from '@/lib/supabaseClient';
 import { Hero } from '@/components/Hero';
 import { ProjectGrid } from './components/project-grid';
+import { generateProjectsMetadata } from '@/lib/seo';
+
+export const metadata = generateProjectsMetadata();
 
 const DUMMY_IMAGE = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80';
 

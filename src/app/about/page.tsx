@@ -7,6 +7,9 @@ import TrackRecord from './TrackRecord';
 import { FaQuoteLeft } from "react-icons/fa6";
 import { AboutTimeline } from "./AboutTimeline";
 import { SectionContainer } from "@/components/SectionContainer";
+import { generateAboutMetadata } from "@/lib/seo";
+
+export const metadata = generateAboutMetadata();
 
 export default function AboutPage() {
 
