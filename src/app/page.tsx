@@ -23,7 +23,7 @@ export default async function Home() {
     };
 
   return (
-    <>
+    <div className="flex flex-col gap-30">
       <section className="sm:mx-6">
         <HeroSection />
       </section>
@@ -47,10 +47,10 @@ export default async function Home() {
         </div>
       </section>
 
-      <div className="flex flex-col items-center justify-center">
-        <section>
-          <TrackRecord />
-        </section>
+      <section className="flex flex-col items-center justify-center">
+        <TrackRecord />
+        
+      </section>
         <section>
           <CTAImages
             title="What We Do"
@@ -108,7 +108,6 @@ export default async function Home() {
             </div>
           </div>
         </section>
-      </div>
-    </>
+    </div>
   );
 }

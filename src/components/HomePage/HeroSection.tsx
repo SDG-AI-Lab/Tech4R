@@ -6,7 +6,6 @@ import { routes } from "@/lib/routes";
 const HeroSection = () => {
   return (
     <>
-
       <div className="relative min-h-screen scroll-mt-28 -mt-28 w-full mx-auto">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
@@ -14,7 +13,7 @@ const HeroSection = () => {
             src="/images/laptop.png"
             alt="Laptop keyboard background"
             fill
-            className="w-full h-full object-cover rounded-[20px]"
+            className="w-full h-full object-cover sm:rounded-[20px]"
             priority
           />
           {/* <div className="absolute inset-0 bg-gradient-to-r from-black to-black/10 z-5 rounded-[20px]" /> */}

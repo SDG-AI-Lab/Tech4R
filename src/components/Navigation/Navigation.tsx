@@ -9,14 +9,12 @@ import { usePathname } from "next/navigation";
 
 export const Navigation = () => {
   const pathname = usePathname();
-  if (pathname === routes.home) {
-    console.log(pathname);
-  }
+
   return (
     <nav
       className={`${pathname === routes.home ? "bg-transparent sm:mt-6" : "bg-color-02"} relative z-40`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-8 3xl:px-0">
         <div className="flex justify-between items-center h-28">
           {/* Logo */}
           <div className="flex-shrink-0">
