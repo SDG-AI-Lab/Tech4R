@@ -31,7 +31,7 @@ export default function VolunteersPage() {
           <VolunteerCarousel />
         </div>
         
-        <div className="mx-6 p-2 sm:p-16 m-6 bg-neutral-01 rounded-[20px]">
+        <div className="container mx-auto p-2 sm:p-16 m-6 bg-neutral-01 rounded-[20px]">
           <Title>Required Skills</Title>
           <p className='mx-auto my-4 w-full sm:w-1/3 text-center text-neutral-03 font-light text-lg leading-relaxed'>From data science to digital storytelling, we welcome volunteers with diverse tech and non-tech backgrounds.</p>
           <ul className="grid gap-4 grid-cols-1 md:grid-cols-3 place-items-center place-content-center">
