@@ -4,16 +4,15 @@ import "./globals.css";
 import { Navigation } from "@/components/Navigation";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
+import { OrganizationStructuredData } from "@/components/StructuredData";
+import { generateHomeMetadata } from "@/lib/seo";
 
 const outfitSans = Outfit({
   variable: "--font-outfit-sans",
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Tech4R",
-  description: "Tech4R is a collaborative initiative harnessing digital innovation to strengthen disaster resilience around the world.",
-};
+export const metadata: Metadata = generateHomeMetadata();
 
 export default function RootLayout({
   children,
@@ -25,6 +24,7 @@ export default function RootLayout({
       <body
         className={`${outfitSans.variable} antialiased flex flex-col min-h-screen`}
       >
+        <OrganizationStructuredData />
         <Navigation />
         <main className="flex-1 flex flex-col">
           {children}

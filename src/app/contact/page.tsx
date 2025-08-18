@@ -2,6 +2,9 @@ import { Hero } from "@/components/Hero";
 import TilePanel from '@/components/TilePanel';
 import ContactForm from './ContactForm';
 import { socials } from './socialmedia';
+import { generateContactMetadata } from '@/lib/seo';
+
+export const metadata = generateContactMetadata();
 
 export default function ContactPage() {
 
@@ -14,8 +17,6 @@ export default function ContactPage() {
       url: item.url
     };
   });
-
-  console.log(socialTiles);
 
   return (
     <>
@@ -32,9 +33,7 @@ export default function ContactPage() {
 
       <ContactForm />
 
-      <div className="flex-1 flex items-center justify-center">
-        <TilePanel title="Get In Touch" tiles={socialTiles} />      
-      </div>
+      <TilePanel title="Get In Touch" tiles={socialTiles} />      
     </>
   );
 }
