@@ -12,7 +12,6 @@ import { EventCategory } from "./events/page";
 import Title from "@/components/Title";
 import { Button } from "@/components/Button";
 import VolunteerCarousel from "@/app/volunteers/CarouselVolunteer";
-import { SectionContainer } from "../components/SectionContainer";
 
 export default async function Home() {
   const { data: eventCategories, error: eventCategoriesError } = (await supabase
