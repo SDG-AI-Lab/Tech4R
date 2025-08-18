@@ -1,5 +1,8 @@
 import { Hero } from "@/components/Hero";
 import { pillars } from './pillars';
+import { generatePillarsMetadata } from '@/lib/seo';
+
+export const metadata = generatePillarsMetadata();
 
 
 export default function PillarsOfActionPage() {

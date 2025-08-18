@@ -4,6 +4,9 @@ import Title from '@/components/Title'
 import Image from "next/image";
 import debugimg from "@/../public/images/debugimg.png"
 import { FaCircleCheck } from "react-icons/fa6";
+import { generatePartnerMetadata } from '@/lib/seo';
+
+export const metadata = generatePartnerMetadata();
 
 console.log(debugimg)
 
@@ -20,9 +23,9 @@ export default function PartnerWithUsPage() {
   return (
     <>
       <Hero title="Partner With Us" subtitle="Tech4R offers a platform to innovate at the intersection of technology and humanitarian aid. Join us to scale impact." />
-      <section className="flex-1">
-        <div className="container flex mx-auto p-4 m-6">
-          <Image src={debugimg} alt="ALT TEXT" height={70} className="flex-1 rounded-3xl"/>
+      <section className="flex-1 my-8">
+        <div className="container flex mx-auto flex-col lg:flex-row px-4 md:px-8 lg:px-16 xl:px-20">
+          <Image src={debugimg} alt="ALT TEXT" height={550} className="flex-1 rounded-2xl mx-auto" />
           <div className="container mx-auto flex-1 p-12 m-6">
             <Title className="text-left">Why Partner with Tech4R?</Title>
             <p className="text-neutral-03 p-4 mb-4">Lorem ipsum etc etc etc etc<br />Description goes here</p>
@@ -38,7 +41,7 @@ export default function PartnerWithUsPage() {
           <ul className="grid gap-4 grid-cols-2 md:grid-cols-3 place-items-center place-content-center">
             {partners.map(e => (
               <li key={e.name} className="rounded-lg p-4 w-full bg-background m-4">
-                <Image src={e.logo} alt={e.name} width={48} height={48} className="rounded"/>
+                <Image src={e.logo} alt={e.name} width={48} height={48} className="rounded" />
                 <h5 className="font-bold text-2xl">{e.name}</h5>
                 <p className="text-neutral-02">{e.desc}</p>
               </li>

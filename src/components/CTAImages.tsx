@@ -19,7 +19,7 @@ type CTAImagesProps = {
 
 export default function CTAImages({ title, text, content, btnHref, btnLabel, img1Src, img2Src, img3Src }: CTAImagesProps) {
     return (
-        <div className="flex items-center justify-center my-8 sm:mx-6">
+        <div className="flex items-center justify-center my-8 mx-4 sm:mx-6">
             <div className="w-full rounded-[20px] bg-color-02 text-white grid p-6 lg:px-24 lg:grid-cols-2 lg:px-24 gap-8">
                 <div className="flex flex-col justify-center py-12 sm:pb-2">
                     <h2 className="text-4xl font-semibold">{title}</h2>
