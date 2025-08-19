@@ -23,7 +23,7 @@ export default async function Home() {
     };
 
   return (
-    <>
+    <div className="flex flex-col gap-30">
       <section className="sm:mx-6">
         <HeroSection />
       </section>
@@ -47,11 +47,11 @@ export default async function Home() {
         </div>
       </section>
 
-      <div className="flex flex-col items-center justify-center">
-        <section>
-          <TrackRecord />
-        </section>
-        <section>
+      <section className="flex flex-col items-center justify-center">
+        <TrackRecord />
+        
+      </section>
+        <section className="container mx-auto">
           <CTAImages
             title="What We Do"
             text="Tech4R operates across four strategic pillars that guide our mission to deliver impactful digital solutions for disaster resilience."
@@ -66,18 +66,18 @@ export default async function Home() {
           // TODO: Set img1Src, img2Src, img3Src
           />
         </section>
-        <section>
+        <section className="container mx-auto">
           <div className="relative w-full px-6 md:px-16 mx-auto grid">
             <Title>Introducing Our <span className="hidden md:inline">Skilled Team of&nbsp;</span>Volunteers</Title>
             <Button className="m-auto flex-none mb-6" href={routes.volunteers}><span className="hidden md:inline">Become a&nbsp;</span>Volunteer</Button>
             <VolunteerCarousel />
           </div>
         </section>
-        <section>
+        <section className="container mx-auto">
           <ProjectsSolutionsSection />
         </section>
 
-        <section>
+        <section className="container mx-auto">
           {eventCategoriesError ? (
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-red-600 py-14">
               Failed to load event categories.
@@ -108,7 +108,6 @@ export default async function Home() {
             </div>
           </div>
         </section>
-      </div>
-    </>
+    </div>
   );
 }

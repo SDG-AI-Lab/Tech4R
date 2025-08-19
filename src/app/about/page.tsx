@@ -1,12 +1,12 @@
 import { Hero } from "@/components/Hero";
 import PillarTiles from "@/components/PillarTiles";
 import Image from 'next/image';
-import TrackRecord from './TrackRecord';
 import { FaQuoteLeft } from "react-icons/fa6";
 import { AboutTimeline } from "./AboutTimeline";
 import { SectionContainer } from "@/components/SectionContainer";
 import PartnerSection from './PartnerSection';
 import { generateAboutMetadata } from "@/lib/seo";
+import TrackRecord from "./TrackRecord";
 
 export const metadata = generateAboutMetadata();
 
@@ -28,64 +28,66 @@ export default function AboutPage() {
         />
       </Hero>
 
-      <div className="flex flex-col items-center justify-center">
-        <section>
+      <div className="flex flex-col items-center justify-center gap-30">
+        <SectionContainer>
           <div className="container px-4 md:px-8 lg:px-16 xl:px-20">
-            <div className="lg:grid lg:grid-cols-2 gap-4">
-              <div>
-                <Image src="/images/work-desk.jpg" alt="Work desk" width={552} height={550} className="rounded-2xl" />
+            <div className="lg:grid lg:grid-cols-2 gap-0 items-stretch">
+              <div className="hidden lg:block relative h-full overflow-hidden rounded-2xl">
+                <Image src="/images/work-desk.jpg" alt="Work desk" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
               </div>
 
-              <div className="flex flex-col gap-4 h-fit my-8">
-                <h2 className="text-4xl font-semibold">Our Mission</h2>
-                <p className="text-neutral-03">
-                  We believe resilience is built through proactive, tech-enabled solutions. We bridge the gap between crisis and recovery by applying data, AI, and emerging technologies. Our mission is to empower communities before, during, and after disasters strike.
-                </p>
-                <h2 className="text-4xl font-semibold">Our Roots</h2>
-                <p className="text-neutral-03">
-                  Tech4R is hosted by the UNDP ICPSD and supported by partners like the SDG AI Lab, among others committed to sustainable development and humanitarian innovation.
-                </p>
+              <div className="flex flex-col gap-8 h-full justify-center lg:p-16">
+                <div className="flex flex-col gap-4">
+                  <h2 className="text-3xl lg:text-5xl font-semibold text-neutral-04 tracking-[-1.5px]">Our Mission</h2>
+                  <p className="text-neutral-03 text-md font-light leading-relaxed">
+                    We believe resilience is built through proactive, tech-enabled solutions. We bridge the gap between crisis and recovery by applying data, AI, and emerging technologies. Our mission is to empower communities before, during, and after disasters strike.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-4">
+                  <h2 className="text-3xl lg:text-5xl font-semibold text-neutral-04 tracking-[-1.5px]">Our Roots</h2>
+                  <p className="text-neutral-03 font-light leading-relaxed">
+                    Tech4R is hosted by the UNDP ICPSD and supported by partners like the SDG AI Lab, among others committed to sustainable development and humanitarian innovation.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </section>
+        </SectionContainer>
 
-        <section>
+        <SectionContainer>
           <PillarTiles />
-        </section>
+        </SectionContainer>
         
         <SectionContainer>
           <PartnerSection />
         </SectionContainer>
         
         <SectionContainer>
+          <TrackRecord />
+        </SectionContainer>
+
+        <SectionContainer>
           <AboutTimeline />
         </SectionContainer>
 
-        <section>
-          <TrackRecord />
-        </section>
-
-        <section>
-          <div className="container my-8">
-            <div className="flex flex-row sm:flex-col flex-wrap items-center lg:grid lg:grid-cols-2 px-4 md:px-6 lg:px-10 xl:px-20 2xl:px-24 gap-6">
-              <div>
-                <h2 className="text-7xl font-semibold mb-4">Why Tech4R Exists</h2>
-                <p className="text-neutral-02">We believe resilience is built through proactive, tech-enabled solutions.</p>
+        <SectionContainer>
+          <div className="container">
+            <div className="flex flex-row sm:flex-col flex-wrap lg:items-center lg:grid lg:grid-cols-2 2xl:px-24 gap-6">
+              <div className="px-8 lg:px-0 mb-4 lg:mb-0">
+                <h2 className="text-neutral-04 text-5xl tracking-[-1.5px] lg:text-7xl font-semibold mb-4 lg:max-w-md lg:tracking-[-2.5px]">Why Tech4R Exists</h2>
+                <p className="text-neutral-03 font-light lg:max-w-92 leading-relaxed">We believe resilience is built through proactive, tech-enabled solutions.</p>
               </div>
-              <div className="px-2 xl:px-10 2xl:px-24">
-                <div className="bg-color-03 my-2 p-4 py-14 rounded-xl">
-                  <div className="bg-white p-4 rounded">
-                    <FaQuoteLeft className="rounded w-16 h-16 text-color-01 mt-1" />
-                    <p className="text-4xl font-medium p-4 pb-8">Our mission is to empower communities before, during, and after disasters strike.</p>
+              <div className="xl:px-16">
+                <div className="bg-color-06 px-9 py-24 sm:rounded-xl">
+                  <div className="bg-white px-8 py-16 rounded-xl">
+                    <FaQuoteLeft className="w-16 h-16 text-color-01" />
+                    <p className="text-neutral-04 text-4xl tracking-[-1.5px] font-medium p-4 pb-8">Our mission is to empower communities before, during, and after disasters strike.</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-
-
+        </SectionContainer>
       </div>
     </>
   );
