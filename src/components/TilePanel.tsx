@@ -17,8 +17,7 @@ export default function TilePanel({ title, tiles }: TilePanelProps) {
     return (
         <div className="container sm:rounded-[20px] bg-neutral-01 py-16">
             <div className="mx-auto px-12">
-                {title && <h2 className="text-5xl font-semibold mb-8 text-center tracking-[-1.5px] text-neutral-04 mb-12">{title}</h2>}
-
+                {title && <h2 className="text-5xl font-semibold text-center tracking-[-1.5px] text-neutral-04 mb-12">{title}</h2>}
                 <div className="grid grid-cols-1 lg:grid-cols-3 items-stretch gap-12">
                     {tiles.map((tile, idx) => {
 
