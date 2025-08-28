@@ -5,7 +5,7 @@ import TrackRecord from './TrackRecord';
 import { FaQuoteLeft } from "react-icons/fa6";
 import { AboutTimeline } from "./AboutTimeline";
 import { SectionContainer } from "@/components/SectionContainer";
-import PartnerSection from './PartnerSection';
+import PartnerSection from '@/components/PartnerSection';
 import { generateAboutMetadata } from "@/lib/seo";
 
 export const metadata = generateAboutMetadata();
