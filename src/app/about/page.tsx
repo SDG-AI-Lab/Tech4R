@@ -18,9 +18,8 @@ export default function AboutPage() {
         title="About Tech4R"
         subtitle="Tech4R is a collaborative initiative harnessing digital innovation to strengthen disaster resilience around the world."
       >
-
         <Image
-          src="/images/about-hero.jpg"
+          src="https://plus.unsplash.com/premium_photo-1677529497048-2bf5899e68de?w=1440"
           alt="Team collaboration in disaster response"
           width={1440}
           height={960}

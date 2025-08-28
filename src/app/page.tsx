@@ -33,16 +33,27 @@ export default async function Home() {
         <PillarTiles />
       </section>
       {/* About */}
-      <section className="container mx-auto flex flex-col lg:flex-row px-4 md:px-8 lg:px-16 xl:px-20">
-        <Image src="/images/debugimg.png" alt="ALT TEXT" width={552} height={550} className="rounded-2xl flex-1 mx-auto" />
-        <div className="container mx-auto flex-1 p-12">
-          <Title>About Tech4R</Title>
+      <section className="container mx-auto flex flex-col lg:flex-row 2xl:px-20 gap-16">
+        <div className="flex-1">
+          <Image
+            src="/images/about-tech4r.jpg"
+            alt="Tech4R global collaboration"
+            width={1539}
+            height={863}
+            sizes="(min-width: 1024px) 552px, 100vw"
+            className="rounded-2xl mx-auto w-full h-auto"
+          />
+        </div>
+        <div className="container mx-auto flex flex-col h-full flex-1 justify-center xl:pt-8 2xl:pt-12">
+          <h2 className="font-semibold text-5xl leading-snug tracking-tight w-full mx-auto mb-6">About Tech4R</h2>
           <p className="text-neutral-03 font-light leading-relaxed">
             We believe resilience is built through proactive, tech-enabled solutions. We bridge the gap between crisis and recovery by applying data, AI, and emerging technologies.
-            <br /><br />
-            Our mission is to empower communities before, during, and after disasters strike.</p>
-          <div className="mt-11 inline-flex">
-            <Button className="m-auto flex-none" href={routes.about}>Learn More About Us</Button>
+          </p>
+          <p className="text-neutral-03 font-light leading-relaxed mt-4">
+            Our mission is to empower communities before, during, and after disasters strike.
+          </p>
+          <div className="mt-12">
+            <Button className="flex-none" href={routes.about}>Learn More About Us</Button>
           </div>
         </div>
       </section>
