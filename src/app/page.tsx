@@ -13,6 +13,7 @@ import Title from "@/components/Title";
 import { Button } from "@/components/Button";
 import VolunteerCarousel from "@/app/volunteers/CarouselVolunteer";
 
+
 export default async function Home() {
   const { data: eventCategories, error: eventCategoriesError } = (await supabase
     .from("event_categories")
@@ -69,12 +70,11 @@ export default async function Home() {
             btnHref={routes.pillars}
             btnLabel="Explore Our Pillars of Action"
             content={[
-              { icon: <FaCircleCheck />, text: "Rescue" },
-              { icon: <FaCircleCheck />, text: "Recovery" },
-              { icon: <FaCircleCheck />, text: "Response" },
-              { icon: <FaCircleCheck />, text: "Resilience" },
+              { icon: <CircleCheckIcon />, text: "Rescue" },
+              { icon: <CircleCheckIcon />, text: "Recovery" },
+              { icon: <CircleCheckIcon />, text: "Response" },
+              { icon: <CircleCheckIcon />, text: "Resilience" },
             ]}
-          // TODO: Set img1Src, img2Src, img3Src
           />
         </section>
         <section className="container mx-auto">
@@ -122,3 +122,7 @@ export default async function Home() {
     </div>
   );
 }
+
+
+// FaCircleCheck on white background
+const CircleCheckIcon = () => <div className="rounded-full bg-white"><FaCircleCheck /></div>

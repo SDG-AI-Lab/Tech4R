@@ -26,8 +26,8 @@ export default function CTAImages({ title, text, content, btnHref, btnLabel, img
                     <p className="py-8 mb-2 text-lg text-neutral-01">{text}</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-8">
                         {content?.map((item, index) => (
-                            <div key={index} className="flex items-start gap-2 mb-2">
-                                {item.icon && <span className="text-xl text-color-01">{item.icon}</span>}
+                            <div key={index} className="flex items-center gap-2 mb-2">
+                                {item.icon && <span className="text-xl text-color-01 flex items-center justify-center">{item.icon}</span>}
                                 <p>{item.text}</p>
                             </div>
                         ))}
