@@ -22,7 +22,7 @@ export default function CTAImages({ title, text, content, btnHref, btnLabel, img
         <div className="flex items-center justify-center my-8 mx-4 sm:mx-6">
             <div className="w-full rounded-[20px] bg-color-02 text-white grid p-6 lg:px-24 lg:grid-cols-2 lg:px-24 gap-8">
                 <div className="flex flex-col justify-center py-12 sm:pb-2">
-                    <h2 className="text-4xl font-semibold">{title}</h2>
+                    <h2 className="text-5xl font-semibold tracking-[-1.5px]">{title}</h2>
                     <p className="py-8 mb-2 text-lg text-neutral-01">{text}</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-8">
                         {content?.map((item, index) => (
