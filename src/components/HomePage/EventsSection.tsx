@@ -24,7 +24,7 @@ const EventsSection = ({ events }: EventsSectionProps) => {
   }
 
   return (
-    <div className="flex items-center justify-center my-8 sm:mx-6">
+    <div className="flex items-center justify-center">
       <div className="w-full rounded-[20px] bg-neutral-01 px-6 md:px-16 py-16">
         <h2 className="text-3xl sm:text-5xl font-[600] text-center text-neutral-04 mb-12">
           Events
@@ -36,6 +36,8 @@ const EventsSection = ({ events }: EventsSectionProps) => {
               key={event.id}
               title={event.name}
               description={event.description}
+              imageSrc={event.image}
+              imageAlt={`Image illustrating ${event.name}`}
               onSeeAll={() => handleSeeAll(event.id)}
             />
           ))}

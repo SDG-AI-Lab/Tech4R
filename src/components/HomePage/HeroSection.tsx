@@ -6,7 +6,7 @@ import { routes } from "@/lib/routes";
 const HeroSection = () => {
   return (
     <>
-      <div className="relative min-h-screen scroll-mt-28 -mt-28 w-full mx-auto">
+      <div className="relative scroll-mt-28 -mt-28 w-full mx-auto" style={{ minHeight: "calc(100vh - 3rem)" }}>
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -16,7 +16,6 @@ const HeroSection = () => {
             className="w-full h-full object-cover sm:rounded-[20px]"
             priority
           />
-          {/* <div className="absolute inset-0 bg-gradient-to-r from-black to-black/10 z-5 rounded-[20px]" /> */}
         </div>
 
         {/* Main Content */}
@@ -62,14 +61,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-
-      {/* Track Record */}
-      {/* What We Do (link to Pillars) */}
-      {/* Volunteers */}
-
-      {/* Projection */}
-      {/* Events */}
-
     </>
   );
 };

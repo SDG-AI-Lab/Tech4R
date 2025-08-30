@@ -17,7 +17,7 @@ import VolunteerCarousel from "@/app/volunteers/CarouselVolunteer";
 export default async function Home() {
   const { data: eventCategories, error: eventCategoriesError } = (await supabase
     .from("event_categories")
-    .select("id, name, description")
+    .select("id, name, description, image")
     .order("name", { ascending: true })) as {
       data: EventCategory[] | null;
       error: Error | null;
