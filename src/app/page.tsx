@@ -122,7 +122,7 @@ export default async function Home() {
               <Image alt="UN Volunteers" src="/images/partner-unv.png" height={39} width={218} className='h-8 w-auto object-contain grayscale hover:grayscale-0 transition' />
               <Image alt="HP LIFE" src="/images/partner-hp-life.png" width={186} height={99} className='h-8 w-auto object-contain grayscale hover:grayscale-0 transition' />
               <Image alt="Bridge to Türkiye Fund" src="/images/partner-btf.png" width={250} height={78} className='h-8 w-auto object-contain grayscale hover:grayscale-0 transition' />
-              <Image alt="ATÖLYE" src="/images/partner-atölye.png" width={250} height={82} className='h-8 w-auto object-contain grayscale hover:grayscale-0 transition' />
+              <Image alt="ATÖLYE" src="/images/partner-atolye.png" width={250} height={82} className='h-8 w-auto object-contain grayscale hover:grayscale-0 transition' />
               <Image alt="EKA" src="/images/partner-eka.png" width={250} height={143} className='h-8 w-auto object-contain grayscale hover:grayscale-0 transition' />
               <Image alt="LJS" src="/images/partner-ljs.png" width={229} height={726} className='h-8 w-auto object-contain grayscale hover:grayscale-0 transition' />
             </div>
