@@ -100,25 +100,36 @@ export default async function Home() {
           )}
         </section>
 
-        <section>
-          {/* Partner With Us */}
-          <div className="container mx-auto flex flex-col lg:flex-row px-4 md:px-8 lg:px-16 xl:px-20 my-8">
-            <Image src="/images/debugimg.png" alt="ALT TEXT" width={552} height={550} className="flex-1 rounded-2xl mx-auto" />
-            <div className="container mx-auto flex-1 p-12 m-6">
-              <Title>Partner With Us</Title>
-              <p className="text-neutral-03 font-light leading-relaxed mtb-5">Tech4R offers a platform to innovate at the intersection of technology and humanitarian aid. Join us to scale impact.</p>
-              <div className="mt-11 inline-flex">
-                <div className="mr-4 hidden md:flex">
-                  <Image alt="" src="/images/debugimg.png" width={60} height={60} className='border-background border-2 h-12 w-12 rounded-full' />
-                  <Image alt="" src="/images/debugimg.png" width={60} height={60} className='border-background border-2 h-12 w-12 rounded-full ml-[-15px]' />
-                  <Image alt="" src="/images/debugimg.png" width={60} height={60} className='border-background border-2 h-12 w-12 rounded-full ml-[-15px]' />
-                  <Image alt="" src="/images/debugimg.png" width={60} height={60} className='border-background border-2 h-12 w-12 rounded-full ml-[-15px]' />
-                </div>
-                <Button className="m-auto flex-none" href={routes.partnerWithUs}>Learn More</Button>
-              </div>
+
+        <section className="container mx-auto flex flex-col lg:flex-row 2xl:px-20 gap-16">
+        <div className="flex-1">
+          <Image
+            src="/images/partnership.jpg"
+            alt="Tech4R Partnership"
+            width={1539}
+            height={863}
+            sizes="(min-width: 1024px) 552px, 100vw"
+            className="rounded-2xl mx-auto w-full h-auto"
+          />
+        </div>
+        <div className="container mx-auto flex flex-col h-full flex-1 justify-center xl:pt-12 2xl:pt-18">
+          <h2 className="font-semibold text-5xl leading-snug tracking-tight w-full mx-auto mb-6">Partner With Us</h2>
+          <p className="text-neutral-03 font-light leading-relaxed">
+          Tech4R offers a platform to innovate at the intersection of technology and humanitarian aid. Join us to scale impact.
+          </p>
+          <div className="mt-8 flex flex-col">
+            <div className="mr-4 hidden md:flex flex-wrap items-center gap-6">
+              <Image alt="UN Volunteers" src="/images/partner-unv.png" height={39} width={218} className='h-8 w-auto object-contain grayscale hover:grayscale-0 transition' />
+              <Image alt="HP LIFE" src="/images/partner-hp-life.png" width={186} height={99} className='h-8 w-auto object-contain grayscale hover:grayscale-0 transition' />
+              <Image alt="Bridge to Türkiye Fund" src="/images/partner-btf.png" width={250} height={78} className='h-8 w-auto object-contain grayscale hover:grayscale-0 transition' />
+              <Image alt="ATÖLYE" src="/images/partner-atölye.png" width={250} height={82} className='h-8 w-auto object-contain grayscale hover:grayscale-0 transition' />
+              <Image alt="EKA" src="/images/partner-eka.png" width={250} height={143} className='h-8 w-auto object-contain grayscale hover:grayscale-0 transition' />
+              <Image alt="LJS" src="/images/partner-ljs.png" width={229} height={726} className='h-8 w-auto object-contain grayscale hover:grayscale-0 transition' />
             </div>
+            <Button className="flex-none mt-12 self-start" href={routes.partnerWithUs}>Learn More</Button>
           </div>
-        </section>
+        </div>
+      </section>
     </div>
   );
 }
