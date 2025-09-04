@@ -80,7 +80,7 @@ export default function ProjectsSolutionsSection() {
         <div className="w-full lg:grid lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-6">
           
           {/* Left side - Categories - Fixed width */}
-          <div className="lg:col-span-4 xl:col-span-3 py-2 sm:py-4 w-full">
+          <div className="lg:col-span-4 xl:col-span-3 py-2 sm:py-4 w-full lg:pr-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-4 sm:mb-6 md:mb-8">Projects & Solutions</h2>
             
             <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8">
