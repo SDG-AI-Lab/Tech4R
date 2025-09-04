@@ -19,7 +19,7 @@ export default function AboutPage() {
         subtitle="Tech4R is a collaborative initiative harnessing digital innovation to strengthen disaster resilience around the world."
       >
         <Image
-          src="https://plus.unsplash.com/premium_photo-1677529497048-2bf5899e68de?w=1440"
+          src="/images/about-tech4r.jpg"
           alt="Team collaboration in disaster response"
           width={1440}
           height={960}
@@ -33,7 +33,7 @@ export default function AboutPage() {
           <div className="container px-4 md:px-8 lg:px-16 xl:px-20">
             <div className="lg:grid lg:grid-cols-2 gap-0 items-stretch">
               <div className="hidden lg:block relative h-full overflow-hidden rounded-2xl">
-                <Image src="/images/work-desk.jpg" alt="Work desk" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+                <Image src="/images/our-mission.png" alt="Work desk" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
               </div>
 
               <div className="flex flex-col gap-8 h-full justify-center lg:p-16">
@@ -57,11 +57,11 @@ export default function AboutPage() {
         <SectionContainer>
           <PillarTiles />
         </SectionContainer>
-        
+
         <SectionContainer>
           <PartnerSection />
         </SectionContainer>
-        
+
         <SectionContainer>
           <TrackRecord />
         </SectionContainer>
