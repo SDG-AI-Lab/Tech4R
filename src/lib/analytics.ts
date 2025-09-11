@@ -1,7 +1,7 @@
 // Google Analytics utility functions
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
+    gtag: (command: string, targetId: string, config?: Record<string, unknown>) => void;
   }
 }
 
@@ -11,7 +11,7 @@ const GA_MEASUREMENT_ID = 'G-KJ0ZS3E4DV';
 /**
  * Track page view with custom dimensions
  */
-export function trackPageView(pagePath: string, pageTitle?: string, customDimensions?: Record<string, any>) {
+export function trackPageView(pagePath: string, pageTitle?: string, customDimensions?: Record<string, unknown>) {
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('config', GA_MEASUREMENT_ID, {
       page_path: pagePath,
