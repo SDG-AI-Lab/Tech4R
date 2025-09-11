@@ -2,6 +2,7 @@ import { supabase } from '@/lib/supabaseClient';
 import Link from 'next/link';
 import Image from 'next/image';
 import { routes } from '@/lib/routes';
+import { ProjectAnalytics } from '@/components/ProjectAnalytics';
 
 const DUMMY_IMAGE = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80';
 
@@ -25,7 +26,13 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     .single();
 
   return (
-    <div className="bg-neutral-01 min-h-screen">
+    <>
+      <ProjectAnalytics 
+        projectName={project.name} 
+        categoryName={category?.name || 'N/A'} 
+        projectSlug={slug} 
+      />
+      <div className="bg-neutral-01 min-h-screen">
       {/* hero section */}
       <div className="bg-color-02 py-16 text-center">
         <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">{project.name}</h1>
@@ -105,6 +112,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           </aside>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 } 

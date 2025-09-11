@@ -24,6 +24,21 @@ export default function RootLayout({
       <body
         className={`${outfitSans.variable} antialiased flex flex-col min-h-screen`}
       >
+        {/* Google Analytics 4 */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-KJ0ZS3E4DV"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-KJ0ZS3E4DV');
+            `,
+          }}
+        />
         <OrganizationStructuredData />
         <Navigation />
         <main className="flex-1 flex flex-col">
