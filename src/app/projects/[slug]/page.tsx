@@ -113,7 +113,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                     Date Completed
                   </h3>
                   <p className="text-neutral-01 font-normal text-sm sm:text-base">
-                    {new Date(project.completion_date).toLocaleDateString('en-US', { 
+                    {new Date(project.completion_date).toLocaleDateString(navigator.language, { 
                       day: 'numeric',
                       month: 'long',
                       year: 'numeric'

@@ -84,7 +84,7 @@ export default async function EventPage({
                   Date
                 </h3>
                 <p className="text-neutral-01 font-normal text-sm sm:text-base">
-                  {new Date(event.date).toLocaleDateString("en-US", {
+                  {new Date(event.date).toLocaleDateString(navigator.language, {
                     day: "numeric",
                     month: "long",
                     year: "numeric",
