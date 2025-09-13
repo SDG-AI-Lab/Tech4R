@@ -80,7 +80,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
           },
           eventStatus: 'https://schema.org/EventScheduled',
           eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-          url: `${baseUrl}/event/${eventData.slug}`,
+          url: `${baseUrl}/events/${eventData.slug}`,
           ...(eventData.event_categories && {
             category: eventData.event_categories.name,
           }),
