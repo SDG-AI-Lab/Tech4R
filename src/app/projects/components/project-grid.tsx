@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/Button';
 import Link from 'next/link';
 import { getProjectDetailRoute } from '@/lib/routes';
+import { FaArrowRight } from 'react-icons/fa6';
 
 interface Category {
   id: string;
@@ -78,28 +79,28 @@ export function ProjectGrid({ initialCategories, initialProjects, dummyImage }: 
       </div>
 
       {/* Project grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8">
         {filteredProjects.map((project: Project) => (
           <div
             key={project.id}
-            className="relative rounded-3xl shadow-xl overflow-hidden border border-neutral-01 flex flex-col justify-end aspect-[4/5] min-h-[380px] bg-neutral-01"
+            className="relative rounded-3xl overflow-hidden border border-neutral-01 flex flex-col justify-end min-h-[380px] bg-neutral-01"
             style={{ backgroundImage: `url(${project.image_url || dummyImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
           >
-            {/* bottom white box */}
-            <div className="absolute left-4 right-4 bottom-4 h-[65%] rounded-2xl bg-white/95 shadow-lg px-6 pt-5 pb-4 flex flex-col justify-between" style={{backdropFilter: 'blur(2px)'}}>
+            {/* Content overlay - positioned at bottom with margin, but not absolutely positioned */}
+            <div className="m-4 mt-40 rounded-2xl bg-white/95 px-6 pt-5 pb-4 flex flex-col" style={{backdropFilter: 'blur(2px)'}}>
               <div>
-                <h2 className="text-lg font-bold text-neutral-04 mb-1 leading-tight">{project.name}</h2>
-                <p className="text-neutral-03 text-sm mb-1 leading-snug">Problem: {project.problem}</p>
-                <p className="text-neutral-03 text-sm mb-1 leading-snug">Tools Used: {Array.isArray(project.tools_used) ? project.tools_used.join(', ') : project.tools_used}</p>
-                <p className="text-neutral-03 text-sm mb-2 leading-snug">Outcome: {project.outcome}</p>
+                <h2 className="text-2xl font-medium text-neutral-04 mb-2 tracking-[-1px] leading-snug">{project.name}</h2>
+                <p className="font-light text-neutral-02 mb-2 leading-relaxed">Problem: {project.problem}</p>
+                <p className="font-light text-neutral-02 mb-2 leading-relaxed">Tools Used: {Array.isArray(project.tools_used) ? project.tools_used.join(', ') : project.tools_used}</p>
+                <p className="font-light text-neutral-02 mb-2 leading-relaxed">Outcome: {project.outcome}</p>
               </div>
-              <div className="flex items-end justify-between w-full mt-auto">
+              <div className="flex items-end justify-between w-full mt-4 gap-4">
                 {/* Learn More*/}
-                <Link href={getProjectDetailRoute(project.slug)} className="text-neutral-04 text-sm font-medium inline-flex items-center gap-1 hover:underline">
-                  Learn More <span aria-hidden>→</span>
+                <Link href={getProjectDetailRoute(project.slug)} className="text-neutral-04 hover:text-neutral-05 transition-all duration-200 inline-flex items-center group">
+                  Learn More <span className="ml-2 group-hover:translate-x-1 transition-transform duration-200" aria-hidden="true">→</span>
                 </Link>
                 {/* Category tag*/}
-                <span className="inline-block border border-neutral-03 text-neutral-04 text-xs px-3 py-1 rounded-full font-medium ml-auto">
+                <span className="inline-block border border-neutral-03 text-neutral-04 text-xs px-3 py-1 rounded-full font-medium truncate min-w-0">
                   {categoryMap[project.category_id]}
                 </span>
               </div>
