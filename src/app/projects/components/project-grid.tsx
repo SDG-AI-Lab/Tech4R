@@ -45,7 +45,7 @@ export function ProjectGrid({ initialCategories, initialProjects, dummyImage }: 
     : initialCategories.find(c => c.id === selectedCategory);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
+    <div className="px-4 md:px-8 lg:px-16 xl:px-20 py-12">
       {/* Category selection UI */}
       <div className="flex flex-wrap gap-4 mb-10">
         <Button
