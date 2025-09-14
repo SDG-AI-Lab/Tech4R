@@ -69,7 +69,7 @@ export function ProjectGrid({ initialCategories, initialProjects, dummyImage }: 
 
       {/* Category title and description */}
       <div className="mb-12">
-        <h2 className="text-2xl font-bold text-neutral-04 mb-2">
+        <h2 className="text-3xl font-medium text-neutral-04 mb-4">
           {selectedCategoryInfo?.name}
         </h2>
         <p className="text-neutral-03 text-lg">
