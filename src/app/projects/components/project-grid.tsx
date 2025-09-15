@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Button } from '@/components/Button';
 import Link from 'next/link';
 import { getProjectDetailRoute } from '@/lib/routes';
-import { FaArrowRight } from 'react-icons/fa6';
 
 interface Category {
   id: string;
