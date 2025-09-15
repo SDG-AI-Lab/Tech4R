@@ -7,7 +7,6 @@ import { generateContactMetadata } from '@/lib/seo';
 export const metadata = generateContactMetadata();
 
 export default function ContactPage() {
-
   const socialTiles = socials.info.map((item) => {
     const Icon = item.icon;
     return {
@@ -30,10 +29,10 @@ export default function ContactPage() {
           </>
         } 
       />
-
       <ContactForm />
-
-      <TilePanel title="Get In Touch" tiles={socialTiles} />      
+      <div className="flex flex-col items-center mt-30">
+        <TilePanel title="Get In Touch" tiles={socialTiles} />      
+      </div>
     </>
   );
 }

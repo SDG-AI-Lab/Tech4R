@@ -1,38 +1,25 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { createTransport } from 'nodemailer';
+import type SMTPTransport from 'nodemailer/lib/smtp-transport';
 
 export async function POST(req: Request) {
   try {
     const { name, email, message } = await req.json();
 
-    // DEBUG LOGS (remove or keep as needed)
-    console.log('Contact form data:', { name, email, message });
-    console.log('SMTP_USER:', process.env.SMTP_USER);
-    console.log('CONTACT_RECEIVER_EMAIL:', process.env.CONTACT_RECEIVER_EMAIL);
-
-    // BEFORE DEPLOYMENT / WHEN SWITCHING EMAIL PROVIDERS:
-    // Make sure to update the .env.local file at the project root with the appropriate SMTP settings:
-    // - SMTP_HOST (e.g., smtp.gmail.com, smtp.ionos.com, smtp.office365.com, etc.)
-    // - SMTP_PORT (usually 465 for SSL or 587 for TLS)
-    // - SMTP_USER (the appropriate domain email, e.g., contact@tech4r.com)
-    // - SMTP_PASS (the appropriate App Password or SMTP password, stored in .env.local)
-    //
-    // Make sure CONTACT_RECEIVER_EMAIL is also set to the appropriate destination inbox.
-
-
-    // Create a nodemailer transporter using Gmail SMTP
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
+    const transporter = createTransport({
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      secure: process.env.SMTP_SECURE,
       auth: {
         user: process.env.SMTP_USER,     
         pass: process.env.SMTP_PASS,     
       },
-    });
+    } as SMTPTransport.Options);
 
-    // Send the email
     await transporter.sendMail({
-      from: `"${name}" <${email}>`,                  // shows sender as user input
-      to: process.env.CONTACT_RECEIVER_EMAIL,        // who receives the message
+      from: process.env.CONTACT_SENDER_EMAIL,
+      replyTo: `"${name}" <${email}>`,
+      to: process.env.CONTACT_RECEIVER_EMAIL,
       subject: `Tech4R: New message from ${name}`,
       text: `
         You've received a new message from the Tech4R contact form:

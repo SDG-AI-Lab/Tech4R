@@ -2,15 +2,15 @@ import { Hero } from "@/components/Hero";
 import { Button } from '@/components/Button'
 import Title from '@/components/Title'
 import Image from "next/image";
-import partnership from "@/../public/images/Partnership image.png"
 import { FaCircleCheck } from "react-icons/fa6";
+import partnership from "@/../public/images/Partnership image.png"
 import { generatePartnerMetadata } from '@/lib/seo';
-import { SectionContainer } from "@/components/SectionContainer";
 import PartnerSection from '@/components/PartnerSection';
 
 export const metadata = generatePartnerMetadata();
 
 //Dummy data; todo: pull from actual database or hardcode it in
+
 const reasons = [
   "Open Innovation",
   "Lasting Impact",
@@ -18,7 +18,7 @@ const reasons = [
   "Stronger Resilience",
 ];
 
-export default function PartnerWithUsPage() {
+export default async function PartnerWithUsPage() {
   return (
     <>
       <Hero title="Partner With Us" subtitle="Tech4R offers a platform to innovate at the intersection of technology and humanitarian aid. Join us to scale impact." />
@@ -35,7 +35,7 @@ export default function PartnerWithUsPage() {
           </div>
         </div>
       </section>
-      <section className="px-6 my-6 overflow-hidden">
+      <section className="px-6 my-6 mx-auto overflow-hidden">
         <PartnerSection />
       </section>
     </>

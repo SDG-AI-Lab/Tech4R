@@ -136,7 +136,7 @@ export const AboutTimeline: React.FC = async () => {
   const leftColumn = milestones.slice(0, midpoint);
   const rightColumn = milestones.slice(midpoint);
 
-  return <div className="bg-color-02 w-full rounded-[20px] px-6 py-12 sm:px-30 sm:py-30">
+  return <div className="container bg-color-02 w-full sm:rounded-[20px] px-6 py-12 sm:px-16 lg:px-30 sm:py-30">
     <div className="flex flex-col gap-16">
       <h2 className="text-center text-5xl font-semibold text-white tracking-[-1.5px]">Timeline of major milestones</h2>
 

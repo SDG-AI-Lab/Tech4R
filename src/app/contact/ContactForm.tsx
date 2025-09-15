@@ -46,10 +46,10 @@ export default function ContactForm() {
       {/* Bottom background (white) */}
       <div className="bg-white h-[300px] w-full"></div>
 
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full max-w-2xl px-4"> 
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full max-w-3xl px-4"> 
         <form
           onSubmit={handleSubmit}
-          className="max-w-2xl mx-auto mb-10 p-8 bg-white shadow-md rounded-lg"
+          className="max-w-2xl mx-auto mb-10 p-8 bg-white rounded-2xl shadow-[0_20px_116px_0_rgba(0,0,0,0.10)] border" style={{ borderColor: "rgba(89,89,89,0.2)" }}
         >
           {submitted ? (
             <div className="text-green-600 font-semibold"><FaRegCircleCheck className="inline"/> Thanks! We’ll be in touch soon.</div>
@@ -57,7 +57,7 @@ export default function ContactForm() {
             <>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="name" className="block text-sm font-medium text-neutral-04 mb-2">
                     Full Name
                   </label>
                   <input
@@ -68,12 +68,12 @@ export default function ContactForm() {
                     onChange={handleChange}
                     placeholder="Type your full name"
                     required
-                    className="mt-1 block w-full p-4 rounded-md bg-gray-200 border-gray-300 shadow-sm focus:ring-color-01 focus:border-color-01"
+                    className="mt-1 block w-full p-4 rounded-md bg-[rgba(0,0,0,0.05)] border border-[rgba(0,0,0,0.15)] focus:ring-color-01 focus:border-color-01"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="email" className="block text-sm font-medium text-neutral-04 mb-2">
                     Email Address
                   </label>
                   <input
@@ -84,13 +84,13 @@ export default function ContactForm() {
                     onChange={handleChange}
                     placeholder="Type your email address"
                     required
-                    className="mt-1 block w-full p-4 rounded-md bg-gray-200 border-gray-300 shadow-sm focus:ring-color-01 focus:border-color-01"
+                    className="mt-1 block w-full p-4 rounded-md bg-[rgba(0,0,0,0.05)] border border-[rgba(0,0,0,0.15)] focus:ring-color-01 focus:border-color-01 placeholder:text-neutral-02"
                   />
                 </div>
               </div>
 
               <div className="mt-4">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="message" className="block text-sm font-medium text-neutral-04 mb-2">
                   Your Message
                 </label>
                 <textarea
@@ -101,14 +101,14 @@ export default function ContactForm() {
                   onChange={handleChange}
                   placeholder="Type your message"
                   required
-                  className="mt-1 block w-full p-4 rounded-md bg-gray-200 border-gray-300 shadow-sm focus:ring-color-01 focus:border-color-01"
-                ></textarea>
+                  className="mt-1 block w-full p-4 rounded-md bg-[rgba(0,0,0,0.05)] border border-[rgba(0,0,0,0.15)] focus:ring-color-01 focus:border-color-01 placeholder:text-neutral-02"
+                  ></textarea>
               </div>
 
               <div className="mt-8">
                 <button
                   type="submit"
-                  className="inline-flex items-center px-6 py-2.5 bg-color-01 text-white rounded-3xl hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center px-6 py-2.5 bg-color-01 text-white rounded-3xl hover:opacity-90 transition-opacity placeholder:text-neutral-02"
                 >
                   Submit
                 </button>

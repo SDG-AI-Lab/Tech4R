@@ -9,7 +9,6 @@ import { generateVolunteersMetadata } from '@/lib/seo';
 
 export const metadata = generateVolunteersMetadata();
 
-//filling arrays with dummy data to test appearance
 const skills = [
   {name:"Time Commitment",desc:`5-7 hours/week.\nFlexible, remote.`,ico:FaClock},
   {name:"Team Player",desc:"Team player in a multicultural environment.",ico:FaHandshake},
@@ -32,14 +31,14 @@ export default function VolunteersPage() {
         <div className="container mx-auto p-4 m-6">
           <VolunteerCarousel />
         </div>
-        
-        <div className="mx-6 p-2 sm:p-16 m-6 bg-neutral-01 rounded-[20px]">
+
+        <div className="container mx-auto p-2 sm:p-16 m-6 bg-neutral-01 rounded-[20px]">
           <Title>Required Skills</Title>
           <p className='mx-auto my-4 w-full sm:w-1/3 text-center text-neutral-03 font-light text-lg leading-relaxed'>From data science to digital storytelling, we welcome volunteers with diverse tech and non-tech backgrounds.</p>
           <ul className="grid gap-4 grid-cols-1 md:grid-cols-3 place-items-center place-content-center">
             {skills.map(e => (
               <li key={e.name} className="rounded-2xl p-11 w-full sm:m-3 contain-content bg-background">
-                {(typeof e.ico == 'string')?(<></>):(<e.ico className = "text-4xl text-color-01"/>)}
+                {(typeof e.ico == 'string') ? (<></>) : (<e.ico className="text-4xl text-color-01" />)}
                 <h5 className='text-2xl font-medium mt-2.5'>{e.name}</h5>
                 <p className='text-neutral-02 font-light leading-relaxed'>{e.desc}</p>
               </li>
