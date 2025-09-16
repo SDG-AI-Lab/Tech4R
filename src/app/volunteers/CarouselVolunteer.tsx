@@ -14,7 +14,7 @@ async function VolunteerCarousel() {
   }
   return (
     <Carousel pages={1 + Math.floor(0.125 * (volunteers.length - 1))} size={8} className="grid gap-4 grid-cols-2 md:grid-cols-4 place-items-center place-content-center">
-      {volunteers.map((e, i) => (
+      {volunteers.map((e) => (
         <CI key={e.name} className="group rounded-2xl w-full contain-content z-1 m-3">
           <Image alt={e.name} src={e.image} width={302} height={335} className='object-cover w-full z-2' />
           <div className={`${styles.overlay} fixed bottom-0 w-full h-6/12 z-3 opacity-0 group-hover:opacity-100 text-white duration-200 bg-gradient-to-t from-black bg-opacity-75`}>
