@@ -101,9 +101,7 @@ export default async function EventsPage() {
         <StructuredData key={event.id} type="event" data={event} />
       ))}
       <Hero
-        title={
-          <span className="max-w-[538px] block">Past and Upcoming Events</span>
-        }
+        title="Past and Upcoming Events"
       />
       <section className="w-full py-30 space-y-30">
         <Suspense

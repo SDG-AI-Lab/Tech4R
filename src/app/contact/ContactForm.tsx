@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { FaRegCircleCheck } from "react-icons/fa6";
+import { Button } from '@/components/Button';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -106,12 +107,11 @@ export default function ContactForm() {
               </div>
 
               <div className="mt-8">
-                <button
+                <Button
                   type="submit"
-                  className="inline-flex items-center px-6 py-2.5 bg-color-01 text-white rounded-3xl hover:opacity-90 transition-opacity placeholder:text-neutral-02"
                 >
                   Submit
-                </button>
+                </Button>
               </div>
             </>
           )}
