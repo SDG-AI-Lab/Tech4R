@@ -13,7 +13,7 @@ async function AssignmentsCarousel() {
   return (
     <Carousel pages={1 + Math.floor((assignments.length - 1) / 6)} size={6} className="grid gap-4 grid-cols-1 md:grid-cols-3 place-items-center place-content-center">
       {assignments.map((e, i) => (
-        <CI key={e.title} className="rounded-2xl bg-color-02 text-neutral-02 w-full p-4 m-3 contain-content" index={i}>
+        <CI key={e.title} className="rounded-2xl bg-color-02 text-neutral-02 w-full p-4 m-3 contain-content">
           <h5 className='text-white text-2xl font-bold'>{e.title}{i}</h5>
           <p>{e.description}</p>
           {/*Unused code from Figma:*/} <p>{e.id}</p> 
