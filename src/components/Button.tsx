@@ -15,7 +15,7 @@ export const Button = ({
   href,
   ...props 
 }: ButtonProps) => {
-  const baseClasses = 'inline-flex items-center justify-center px-6 py-2.5 rounded-3xl transition-opacity duration-300 disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseClasses = 'inline-flex items-center justify-center px-6 py-2.5 rounded-3xl transition-opacity duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer';
   
   const variantClasses = {
     primary: 'bg-color-01 text-white hover:opacity-90 shadow-sm',
