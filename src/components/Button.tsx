@@ -34,7 +34,7 @@ export const Button = ({
   }
 
   return (
-    <button className={combinedClasses} {...props}>
+    <button {...props} className={combinedClasses} >
       {children}
     </button>
   );
