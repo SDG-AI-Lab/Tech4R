@@ -5,7 +5,7 @@ const EventCard = ({ event }: { event: Event }) => {
   const { name, description, date } = event;
   return (
     <article className="bg-neutral-01 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-      <Link href={`/event/${event.slug}`}>
+      <Link href={`/events/${event.slug}`}>
         <div className="px-6 py-8">
           <p className="text-[16px] text-color-01 font-[400] mb-2">
             {new Date(date).toLocaleDateString("en-US", {
