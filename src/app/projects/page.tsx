@@ -1,6 +1,7 @@
 import { supabase } from '@/lib/supabaseClient';
 import { Hero } from '@/components/Hero';
 import { ProjectGrid } from './components/project-grid';
+import { SectionContainer } from '@/components/SectionContainer';
 import { generateProjectsMetadata } from '@/lib/seo';
 
 export const metadata = generateProjectsMetadata();
@@ -19,7 +20,7 @@ export default async function ProjectsPage() {
 
   if (catError || projError) {
     return (
-      <div className="p-8 text-red-600">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-red-600 py-14">
         Failed to load projects or categories.<br />
         {catError?.message || projError?.message || 'Unknown error'}
       </div>
@@ -29,11 +30,15 @@ export default async function ProjectsPage() {
   return (
     <>
       <Hero title="Projects & Solutions" subtitle="Discover how our tools and technologies have helped solve real-world challenges in disaster scenarios." />
-      <ProjectGrid 
-        initialCategories={categories || []} 
-        initialProjects={projects || []} 
-        dummyImage={DUMMY_IMAGE}
-      />
+      <SectionContainer>
+        <div className="container mx-auto">
+          <ProjectGrid 
+            initialCategories={categories || []} 
+            initialProjects={projects || []} 
+            dummyImage={DUMMY_IMAGE}
+          />
+        </div>
+      </SectionContainer>
     </>
   );
 }

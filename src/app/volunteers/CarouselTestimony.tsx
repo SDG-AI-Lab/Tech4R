@@ -13,8 +13,8 @@ async function TestimonyCarousel() {
   }/**/
   return (
     <Carousel pages={1 + Math.floor((testimony.length - 1) / 6)} size={6} className="grid gap-4 grid-cols-1 md:grid-cols-3 place-items-center place-content-center">
-      {testimony.map((e, i) => (
-        <CI key={e.name} className="rounded-2xl w-full p-4 m-3 contain-content bg-neutral-01" index={i}>
+      {testimony.map((e) => (
+        <CI key={e.name} className="rounded-2xl w-full p-4 m-3 contain-content bg-neutral-01">
           <FaQuoteLeft className="text-color-01 text-5xl" />
           {/*Unused code from Figma design <h5 className='text-2xl font-bold'>{e.title}{i}</h5>*/}
           <p className='text-neutral-03'>{e.quote}</p>
