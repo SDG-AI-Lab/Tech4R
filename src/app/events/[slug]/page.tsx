@@ -84,7 +84,7 @@ export default async function EventPage({
                   Date
                 </h3>
                 <p className="text-neutral-01 font-normal text-sm sm:text-base">
-                  {new Date(event.date).toLocaleDateString("en-US", {
+                  {new Date(event.date).toLocaleDateString(navigator.language, {
                     day: "numeric",
                     month: "long",
                     year: "numeric",
@@ -125,23 +125,21 @@ export default async function EventPage({
           </div>
         </div>
       </section>
-      <section className="w-full pb-30">
+      {event.photos?.length && <section className="w-full pb-30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="w-full flex flex-col gap-8">
             <h3 className="text-neutral-04 text-3xl sm:text-5xl font-semibold leading-[130%] tracking-[-1.5px]">
               Event photos and highlights
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              {[1, 2, 3, 4, 5, 6].map((value) => (
+              {event.photos.map((src) => (
                 <div
-                  key={value}
+                  key={src}
                   className="relative w-full rounded-2xl overflow-hidden"
                 >
                   <Image
-                    src={`/images/event-photo${value}.${
-                      value === 5 ? "png" : "jpg"
-                    }`}
-                    alt="event photo"
+                    src={src}
+                    alt={`Photo from ${event.name}`}
                     width={410}
                     height={504}
                     className="w-full h-full object-cover rounded-2xl"
@@ -151,7 +149,7 @@ export default async function EventPage({
             </div>
           </div>
         </div>
-      </section>
+      </section>}
     </>
   );
 }
