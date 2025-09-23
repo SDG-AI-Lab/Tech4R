@@ -20,7 +20,7 @@ async function VolunteerCarousel() {
           <div className={`${styles.overlay} fixed bottom-0 w-full h-6/12 z-3 opacity-0 group-hover:opacity-100 text-white duration-200 bg-gradient-to-t from-black bg-opacity-75`}>
             <div className='fixed bottom-0 w-full p-4 z-4'>
               <h5 className='text-2xl font-bold'>{e.name}</h5><p className='text-neutral-01 font-light text-xs leading-relaxed'>{e.location}</p>
-              {(e.linkedin_link == "") ? (<></>) : (<a href={e.linkedin_link}><FaLinkedin className="fixed bottom-3 right-3 text-4xl" /></a>)}
+              {(e.linkedin_link == null) ? (<></>) : (<a href={e.linkedin_link}><FaLinkedin className="fixed bottom-3 right-3 text-4xl" /></a>)}
             </div>
           </div>
         </CI>
