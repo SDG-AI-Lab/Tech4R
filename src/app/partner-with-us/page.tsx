@@ -68,17 +68,20 @@ export default async function PartnerWithUsPage() {
   return (
     <>
       <Hero title="Partner With Us" subtitle="Tech4R offers a platform to innovate at the intersection of technology and humanitarian aid. Join us to scale impact." />
-      <section className="flex-1 my-8">
+      <section className="flex-1 mt-22">
         <div className="container flex mx-auto flex-col lg:flex-row px-4 md:px-8 lg:px-16 xl:px-20">
-          <Image
-            src="/images/partnership.jpg"
-            alt="Tech4R Partnership"
-            width={981}
-            height={550}
-            className="flex-1 rounded-2xl mx-auto"
-          />
-          <div className="container mx-auto flex-1 p-12 m-6">
+          <div className="flex-1">
+            <Image
+              src="/images/partnership.jpg"
+              alt="Tech4R Partnership"
+              width={981}
+              height={550}
+              className="flex-1 rounded-2xl mx-auto"
+            />
+          </div>
+          <div className="container mx-auto flex-1 px-12">
             <Title className="text-left">Why Partner with Tech4R?</Title>
+            <p className="text-neutral-03 p-4 mb-4">Tech4R is built on collaboration. Together with our partners, we bring diverse expertise and resources to support technology-driven disaster response and resilience. <b>UN Volunteers (UNV)</b> is our main partner, helping us connect skilled volunteers worldwide with meaningful opportunities to contribute to open-source digital solutions. Alongside UNV, we work with <b>Bridge to Türkiye Fund</b>, <b>ATÖLYE</b>, <b>EKA Creative Studio</b>, <b>LJUS</b>, and <b>HP LIFE</b>—each adding unique value, from mobilizing communities and advancing education to fostering innovation and entrepreneurship. As Tech4R grows, we are continuously expanding our partnerships to strengthen our global network and maximize impact.</p>
             <ul className="grid gap-4 grid-cols-2 place-items-center place-content-center text-neutral-03 p-4 mb-4">
               {reasons.map(e => (<li key={e} className="inline w-full"><FaCircleCheck className="text-color-01 inline align-sub mr-4" />{e}</li>))}
             </ul>

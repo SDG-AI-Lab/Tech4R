@@ -1,10 +1,11 @@
+import Link from 'next/link'
 import { Hero } from '@/components/Hero'
 import { Button } from '@/components/Button'
 import Title from '@/components/Title'
 import VolunteerCarousel from './CarouselVolunteer'
 import TestimonyCarousel from './CarouselTestimony'
 import AssignmentsCarousel from './CarouselAssignments'
-import { FaScrewdriverWrench, FaListOl } from "react-icons/fa6";
+import { FaBriefcase, FaListOl, FaClock, FaLanguage, FaHandshake, FaHeart, FaTable, FaCode, FaMap, FaPenFancy, FaRobot, FaRegHandPointRight } from "react-icons/fa6";
 import { generateVolunteersMetadata } from '@/lib/seo';
 
 export const metadata = generateVolunteersMetadata();
@@ -15,12 +16,16 @@ export const metadata = generateVolunteersMetadata();
 // · Fill in your profile details (skills, education, experience) – this helps us match you with assignments.
 //filling arrays with dummy data to test appearance
 const skills = [
-  { name: "Skill Name", desc: "Lorem Ipsum etc. 2 lines each", ico: FaScrewdriverWrench },
-  { name: "Skill Name", desc: "Lorem Ipsum etc. 2 lines each", ico: FaScrewdriverWrench },
-  { name: "Skill Name", desc: "Lorem Ipsum etc. 2 lines each", ico: FaScrewdriverWrench },
-  { name: "Skill Name", desc: "Lorem Ipsum etc. 2 lines each", ico: FaScrewdriverWrench },
-  { name: "Skill Name", desc: "Lorem Ipsum etc. 2 lines each", ico: FaScrewdriverWrench },
-  { name: "Skill Name", desc: "Lorem Ipsum etc. 2 lines each", ico: FaScrewdriverWrench }
+  { name: "Time Commitment", desc: `5-7 hours/week.\nFlexible, remote.`, ico: FaClock },
+  { name: "Team Player", desc: "Team player in a multicultural environment.", ico: FaHandshake },
+  { name: "Good English", desc: "Other UN languages are a plus.", ico: FaLanguage },
+  { name: "Professional", desc: "Reliable, professional, and deadline-oriented.", ico: FaBriefcase },
+  { name: "Passionate", desc: "Passion for technology & disaster resilience.", ico: FaHeart },
+  { name: "For Data Collectors", desc: "Experience with Excel/Sheets, research, attention to detail.", ico: FaTable },
+  { name: "For Web Developers", desc: "Experience with HTML, CSS, JavaScript, UX/UI, Figma", ico: FaCode },
+  { name: "For GIS volunteers", desc: "Experience with QGIS/ArcGIS, disaster mapping skills", ico: FaMap },
+  { name: "For Communicators", desc: "Experience at writing, editing, translation, graphic design", ico: FaPenFancy },
+  { name: "For Automation", desc: "Experience with low-code/no-code tools, APIs, workflow automation", ico: FaRobot }
 ];
 const steps = [
   {
@@ -85,11 +90,12 @@ export default function VolunteersPage() {
           </ul>
         </div>
 
-        <div className="container mx-auto p-4 m-6">
+        <div className="container mx-auto p-4 m-6 text-center">
           <Title>How to Get Involved as a Volunteer</Title>
-          <ul className={`grid gap-4 grid-cols-1 md:grid-cols-${steps.length} place-items-center place-content-center`}>
+          <p>All Tech4R volunteer opportunities are hosted on the <b><Link href="https://app.unv.org/">UNV Unified Volunteering Platform (UVP)</Link></b>.</p>
+          <ul className={`grid gap-4 grid-cols-1 md:grid-cols-4 place-items-center place-content-center my-6`}>
             {steps.map((step, idx) => (
-              <li key={`step${idx}`} className="rounded-2xl p-4 w-full m-3 contain-content bg-background border-1 border-neutral-500 border-opacity-20">
+              <li key={`step${idx}`} className="rounded-2xl p-4 w-full h-full m-3 contain-content text-center bg-background border-1 border-neutral-500 border-opacity-20">
                 {(typeof step.ico == 'string') ? (<></>) : (<step.ico className="text-4xl m-auto text-color-01" />)}
                 <h5 className='text-2xl font-bold mt-6 text-center'>{step.name}</h5>
                 <ul className="list-disc ml-6 space-y-1">
@@ -100,6 +106,7 @@ export default function VolunteersPage() {
               </li>
             ))}
           </ul>
+          <p><FaRegHandPointRight className='inline' /> <b>Tip:</b> Assignments are competitive! Fill in your profile carefully and highlight relevant skills to increase your chances.</p>
         </div>
 
         <div className="container mx-auto p-4 m-6">
@@ -109,7 +116,7 @@ export default function VolunteersPage() {
 
         <div className="container grid items-center mx-auto p-4 m-6">
           <Title>Browse Volunteer Assignments in Ongoing Projects</Title>
-          <Button className="mx-auto mb-6 flex-none" href=""><span className="hidden md:inline">Become a&nbsp;</span>Volunteer</Button>
+          <Button className="mx-auto mb-6 flex-none" href="https://www.unv.org/"><span className="hidden md:inline">Become a&nbsp;</span>Volunteer</Button>
           <AssignmentsCarousel />
         </div>
 
