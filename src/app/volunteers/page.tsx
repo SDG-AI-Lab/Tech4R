@@ -5,7 +5,7 @@ import Title from '@/components/Title'
 import VolunteerCarousel from './CarouselVolunteer'
 import TestimonyCarousel from './CarouselTestimony'
 import AssignmentsCarousel from './CarouselAssignments'
-import { FaBriefcase, FaListOl, FaClock, FaLanguage, FaHandshake, FaHeart, FaTable, FaCode, FaMap, FaPenFancy, FaRobot, FaRegHandPointRight } from "react-icons/fa6";
+import { FaBriefcase, FaListOl, FaClock, FaLanguage, FaHandshake, FaHeart, FaTable, FaCode, FaMap, FaBullhorn, FaRobot, FaRegHandPointRight } from "react-icons/fa6";
 import { generateVolunteersMetadata } from '@/lib/seo';
 
 export const metadata = generateVolunteersMetadata();
@@ -24,7 +24,7 @@ const skills = [
   { name: "For Data Collectors", desc: "Experience with Excel/Sheets, research, attention to detail.", ico: FaTable },
   { name: "For Web Developers", desc: "Experience with HTML, CSS, JavaScript, UX/UI, Figma", ico: FaCode },
   { name: "For GIS volunteers", desc: "Experience with QGIS/ArcGIS, disaster mapping skills", ico: FaMap },
-  { name: "For Communicators", desc: "Experience at writing, editing, translation, graphic design", ico: FaPenFancy },
+  { name: "For Communicators", desc: "Experience at writing, editing, translation, graphic design", ico: FaBullhorn },
   { name: "For Automation", desc: "Experience with low-code/no-code tools, APIs, workflow automation", ico: FaRobot }
 ];
 const steps = [
@@ -81,7 +81,7 @@ export default function VolunteersPage() {
           <p className='mx-auto my-4 w-full sm:w-1/3 text-center text-neutral-03 font-light text-lg leading-relaxed'>From data science to digital storytelling, we welcome volunteers with diverse tech and non-tech backgrounds.</p>
           <ul className="grid gap-4 grid-cols-1 md:grid-cols-3 place-items-center place-content-center">
             {skills.map(e => (
-              <li key={e.name} className="rounded-2xl p-11 w-full sm:m-3 contain-content bg-background">
+              <li key={e.name} className="rounded-2xl p-11 w-full h-full sm:m-3 contain-content bg-background">
                 {(typeof e.ico == 'string') ? (<></>) : (<e.ico className="text-4xl text-color-01" />)}
                 <h5 className='text-2xl font-medium mt-2.5'>{e.name}</h5>
                 <p className='text-neutral-02 font-light leading-relaxed'>{e.desc}</p>
